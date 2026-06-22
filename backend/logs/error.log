@@ -1,0 +1,2 @@
+[31m2026-06-19 15:29:55 [ERROR][0m ❌ Failed to connect to MongoDB: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017 
+[31m2026-06-19 15:38:04 [ERROR][0m ❌ Failed to connect to MongoDB: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017 

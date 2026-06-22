@@ -1,0 +1,21 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #17a2b882, #17a2b8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #17a2b882, #17a2b8);
+}
+
+.modal-content {
+    background: #000000 !important;
+    color: #ffffff;
+    text-align: center;
+}
+
+img {
+    float: left;
+    width: 15%;
+    position: absolute;
+    margin: 5%;
+}

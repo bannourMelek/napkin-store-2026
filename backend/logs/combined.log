@@ -1,0 +1,972 @@
+[33m2026-06-19 15:29:50 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-19 15:29:50 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-19 15:29:50 [INFO][0m 📝 Environment: development 
+[36m2026-06-19 15:29:50 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-19 15:29:50 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[31m2026-06-19 15:29:55 [ERROR][0m ❌ Failed to connect to MongoDB: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017 
+[33m2026-06-19 15:37:59 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-19 15:37:59 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-19 15:37:59 [INFO][0m 📝 Environment: development 
+[36m2026-06-19 15:37:59 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-19 15:37:59 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[31m2026-06-19 15:38:04 [ERROR][0m ❌ Failed to connect to MongoDB: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017 
+[33m2026-06-19 16:10:55 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-19 16:10:55 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-19 16:10:55 [INFO][0m 📝 Environment: development 
+[36m2026-06-19 16:10:55 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-19 16:10:55 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-19 16:10:55 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-19 16:10:55 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-19 16:10:55 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-19 16:10:55 [INFO][0m [object Object] 
+[36m2026-06-19 16:10:55 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-19 16:10:55 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-19 16:10:55 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-19 16:21:13 [INFO][0m GET /api/users {
+  "query": {}
+}
+[36m2026-06-19 16:21:23 [INFO][0m GET /api/health {
+  "query": {}
+}
+[33m2026-06-21 15:12:32 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-21 15:12:32 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-21 15:12:32 [INFO][0m 📝 Environment: development 
+[36m2026-06-21 15:12:32 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-21 15:12:32 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-21 15:12:32 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-21 15:12:32 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-21 15:12:32 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-21 15:12:32 [INFO][0m [object Object] 
+[36m2026-06-21 15:12:32 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-21 15:12:32 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-21 15:12:32 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-21 15:13:51 [INFO][0m GET /turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 15:13:51 [INFO][0m GET /turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 15:13:51 [INFO][0m GET /stock {
+  "query": {}
+}
+[36m2026-06-21 15:14:16 [INFO][0m GET /turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 15:14:16 [INFO][0m GET /turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 15:14:16 [INFO][0m GET /stock {
+  "query": {}
+}
+[36m2026-06-21 15:14:21 [INFO][0m GET / {
+  "query": {}
+}
+[36m2026-06-21 15:14:21 [INFO][0m GET /favicon.ico {
+  "query": {}
+}
+[36m2026-06-21 15:14:54 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 15:15:27 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 15:15:27 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 15:15:27 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 15:15:45 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 15:15:45 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 15:15:46 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 15:16:58 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 15:16:58 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 17:14:30 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-21 17:14:40 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-21 17:14:40 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-21 17:14:40 [INFO][0m 📝 Environment: development 
+[36m2026-06-21 17:14:40 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-21 17:14:40 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-21 17:14:40 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-21 17:14:40 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-21 17:14:40 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-21 17:14:40 [INFO][0m [object Object] 
+[36m2026-06-21 17:14:40 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-21 17:14:40 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-21 17:14:40 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-21 17:15:21 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:15:22 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:15:22 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:15:56 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 17:15:56 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 17:24:56 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:24:56 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:24:56 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:25:11 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-21 17:26:29 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-21 17:26:29 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-21 17:26:29 [INFO][0m 📝 Environment: development 
+[36m2026-06-21 17:26:29 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-21 17:26:29 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-21 17:26:29 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-21 17:26:29 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-21 17:26:29 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-21 17:26:29 [INFO][0m [object Object] 
+[36m2026-06-21 17:26:29 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-21 17:26:29 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-21 17:26:29 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-21 17:26:38 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:26:38 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-21 17:26:39 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:26:39 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-21 17:26:39 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:32:22 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:32:22 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-21 17:32:22 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:32:22 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-21 17:32:22 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:32:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:32:43 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-21 17:32:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:32:43 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-21 17:32:43 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:33:03 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:33:03 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-21 17:33:03 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:33:03 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-21 17:33:03 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:33:13 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-21 17:33:13 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-21 17:33:13 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-21 17:33:13 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-21 17:33:13 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-21 17:34:46 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 17:34:46 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ""
+  }
+}
+[36m2026-06-21 17:34:54 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-22 09:54:11 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-22 09:54:11 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-22 09:54:11 [INFO][0m 📝 Environment: development 
+[36m2026-06-22 09:54:11 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-22 09:54:11 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-22 09:54:11 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-22 09:54:11 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-22 09:54:11 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-22 09:54:11 [INFO][0m [object Object] 
+[36m2026-06-22 09:54:11 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-22 09:54:11 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-22 09:54:11 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-22 09:54:54 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 09:54:54 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 09:54:54 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 09:54:54 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 09:54:54 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 09:57:27 [INFO][0m 🔌 Connecting to MongoDB... 
+[36m2026-06-22 09:57:27 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Connected to MongoDB successfully! 
+[36m2026-06-22 09:57:27 [INFO][0m 📝 Inserting sample data... 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 6 users 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 2 admin profiles 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 5 stock items 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 4 GPIO logs 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 3 orders 
+[36m2026-06-22 09:57:27 [INFO][0m ✅ Created 3 transactions 
+[36m2026-06-22 09:57:27 [INFO][0m  
+[36m2026-06-22 09:57:27 [INFO][0m 🎉 Database seeding complete! 
+[36m2026-06-22 09:57:27 [INFO][0m    📊 Summary: 
+[36m2026-06-22 09:57:27 [INFO][0m    ├─ Users: 6 
+[36m2026-06-22 09:57:27 [INFO][0m    ├─ Admins: 2 
+[36m2026-06-22 09:57:27 [INFO][0m    ├─ Stock Items: 5 
+[36m2026-06-22 09:57:27 [INFO][0m    ├─ GPIO Logs: 4 
+[36m2026-06-22 09:57:27 [INFO][0m    ├─ Orders: 3 
+[36m2026-06-22 09:57:27 [INFO][0m    └─ Transactions: 3 
+[36m2026-06-22 09:57:43 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 09:57:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 09:57:43 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 09:57:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 09:57:43 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:03:40 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:03:40 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:03:40 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:03:40 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:03:40 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:04:12 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:04:12 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zo58833w"
+  }
+}
+[36m2026-06-22 10:04:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zo6iht5v"
+  }
+}
+[36m2026-06-22 10:04:15 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zo7uc4dv"
+  }
+}
+[36m2026-06-22 10:04:20 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zobhytfk"
+  }
+}
+[36m2026-06-22 10:04:25 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zofl3k5r"
+  }
+}
+[36m2026-06-22 10:04:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zok7nw0w"
+  }
+}
+[36m2026-06-22 10:04:32 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:04:32 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:04:32 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:04:32 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:04:32 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:04:37 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zoougy70"
+  }
+}
+[36m2026-06-22 10:04:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zothafjj"
+  }
+}
+[36m2026-06-22 10:04:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zoxchyv8"
+  }
+}
+[36m2026-06-22 10:04:49 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:04:49 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:04:49 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:04:49 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:04:49 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:04:56 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:04:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zp3qnhrb"
+  }
+}
+[36m2026-06-22 10:04:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zp4ovtbg"
+  }
+}
+[36m2026-06-22 10:05:00 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zp67o8mk"
+  }
+}
+[36m2026-06-22 10:05:02 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zp81x888"
+  }
+}
+[36m2026-06-22 10:05:07 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpbzqevd"
+  }
+}
+[36m2026-06-22 10:05:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpgmhsok"
+  }
+}
+[36m2026-06-22 10:05:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:05:16 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:05:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:05:16 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:05:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:05:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpkhd63y"
+  }
+}
+[36m2026-06-22 10:05:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpocpr6i"
+  }
+}
+[36m2026-06-22 10:05:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zps836f6"
+  }
+}
+[36m2026-06-22 10:05:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpw392ip"
+  }
+}
+[36m2026-06-22 10:05:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zpzynfir"
+  }
+}
+[36m2026-06-22 10:05:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zq3u3ia8"
+  }
+}
+[36m2026-06-22 10:05:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zq7pal7a"
+  }
+}
+[36m2026-06-22 10:05:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqbkqn79"
+  }
+}
+[36m2026-06-22 10:05:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqffxn8y"
+  }
+}
+[36m2026-06-22 10:06:03 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqjb9r0i"
+  }
+}
+[36m2026-06-22 10:06:08 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqn6rg3f"
+  }
+}
+[36m2026-06-22 10:06:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqr232rv"
+  }
+}
+[36m2026-06-22 10:06:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqux5wsq"
+  }
+}
+[36m2026-06-22 10:06:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zqysqsfc"
+  }
+}
+[36m2026-06-22 10:06:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zr2ny2gu"
+  }
+}
+[36m2026-06-22 10:06:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zr6j386x"
+  }
+}
+[36m2026-06-22 10:06:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zrae8958"
+  }
+}
+[36m2026-06-22 10:06:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zre9lun7"
+  }
+}
+[36m2026-06-22 10:06:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zri52lvk"
+  }
+}
+[36m2026-06-22 10:06:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zrm08n17"
+  }
+}
+[36m2026-06-22 10:06:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zrpvl7up"
+  }
+}
+[36m2026-06-22 10:07:03 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zrtqsu41"
+  }
+}
+[36m2026-06-22 10:07:09 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zry44ueg"
+  }
+}
+[36m2026-06-22 10:07:15 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zs2qs75h"
+  }
+}
+[36m2026-06-22 10:07:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zs7d6bct"
+  }
+}
+[36m2026-06-22 10:07:27 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zsbzxeuc"
+  }
+}
+[36m2026-06-22 10:07:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zsgm923b"
+  }
+}
+[36m2026-06-22 10:07:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "zskhfxn5"
+  }
+}
+[36m2026-06-22 10:07:39 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:07:39 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:07:39 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:07:39 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:07:39 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:09:11 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:09:11 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:09:11 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:09:11 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:09:11 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:09:13 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:09:13 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:09:13 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:09:13 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:09:13 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:09:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:09:16 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:09:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:09:16 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:09:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:09:25 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:09:25 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:09:25 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:09:25 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:09:25 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:10:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:10:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:10:16 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:10:16 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:10:16 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:12:43 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:12:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:12:43 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:12:43 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:12:43 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:13:21 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:13:21 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:13:21 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:13:21 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:13:21 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:14:00 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:14:00 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:14:00 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:14:00 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:14:00 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:14:52 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:14:52 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:14:52 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:14:52 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:14:52 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:28:45 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:28:45 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:28:45 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:28:45 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:28:45 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:29:14 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-22 10:32:05 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-22 10:32:05 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-22 10:32:05 [INFO][0m 📝 Environment: development 
+[36m2026-06-22 10:32:05 [INFO][0m 📊 Database: mongodb://localhost:27017/napkin_store_db 
+[36m2026-06-22 10:32:05 [INFO][0m 🔗 Connecting to MongoDB at mongodb://localhost:27017/napkin_store_db... 
+[36m2026-06-22 10:32:05 [INFO][0m ✅ Connected to MongoDB successfully! 
+[33m2026-06-22 10:32:05 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-22 10:32:05 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-22 10:32:05 [INFO][0m [object Object] 
+[36m2026-06-22 10:32:05 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-22 10:32:05 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-22 10:32:05 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-22 10:33:29 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:33:29 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:33:29 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:33:29 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:33:29 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:33:46 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:33:46 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:33:46 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:33:46 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:33:46 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:35:07 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:35:07 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:35:07 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:35:07 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:35:07 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:35:36 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:35:36 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:35:36 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:35:36 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:35:36 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:44:37 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:44:37 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:44:37 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:44:37 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:44:37 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:46:03 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:46:03 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:46:03 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:46:03 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:46:03 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-22 10:46:52 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-22 10:46:52 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-22 10:46:52 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-22 10:46:52 [INFO][0m GET /api/gpio/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-22 10:46:52 [INFO][0m Event detection disabled for GPIO pin 6 

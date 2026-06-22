@@ -1,0 +1,71 @@
+<section class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+    <ngx-spinner *ngIf="loading" name="loading" [fullScreen]="true"></ngx-spinner>
+    
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <img src="assets/drx.png" alt="Logo" class="w-32 h-auto mx-auto mb-4">
+        </div>
+
+        <div class="bg-slate-800 rounded-lg shadow-2xl overflow-hidden border border-slate-700">
+            <div class="p-8 text-center">
+                <p class="text-white mb-8 text-lg">Bonjour <span class="font-bold">{{admin.name}}</span></p>
+
+                <!-- Stock A Control -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-center gap-2 bg-slate-700 rounded-lg p-4 mb-2">
+                        <button 
+                            type="button"
+                            #stockAMinusBtn
+                            mat-raised-button
+                            (click)="minus('A')"
+                            class="px-4">
+                            −
+                        </button>
+                        <p class="flex-1 text-white font-semibold text-lg">A: {{stock.stockA}}</p>
+                        <button 
+                            type="button" 
+                            mat-raised-button
+                            color="primary"
+                            (click)="plus('A')"
+                            class="px-4">
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stock B Control -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-center gap-2 bg-slate-700 rounded-lg p-4 mb-2">
+                        <button 
+                            type="button" 
+                            mat-raised-button
+                            (click)="minus('B')"
+                            class="px-4">
+                            −
+                        </button>
+                        <p class="flex-1 text-white font-semibold text-lg">B: {{stock.stockB}}</p>
+                        <button 
+                            type="button" 
+                            mat-raised-button
+                            color="primary"
+                            (click)="plus('B')"
+                            class="px-4">
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OK Button -->
+                <div>
+                    <button 
+                        type="button" 
+                        mat-raised-button
+                        routerLink="/signin"
+                        class="w-full mt-4">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,84 +1,85 @@
 /**
- * Database Connection Module
+ * Database Connection Module (Prisma + SQLite)
  */
 
-import mongoose from 'mongoose';
-import { config } from '@/config/env.js';
+import { PrismaClient } from '@prisma/client';
 import logger from '@/utils/logger.js';
 
-let isConnected = false;
+let prisma: PrismaClient | null = null;
 
 /**
- * Connect to MongoDB
+ * Get or create Prisma client instance
+ */
+export function getPrismaClient(): PrismaClient {
+  if (!prisma) {
+    prisma = new PrismaClient({
+      log: [
+        { emit: 'event', level: 'query' },
+        { emit: 'stdout', level: 'error' },
+        { emit: 'stdout', level: 'warn' },
+      ],
+    });
+
+    // Log queries in development
+    prisma.$on('query', (e) => {
+      if (process.env.NODE_ENV === 'development') {
+        logger.debug(`Query: ${e.query}`, { duration: `${e.duration}ms` });
+      }
+    });
+  }
+  return prisma;
+}
+
+/**
+ * Connect to database (initialize Prisma)
  */
 export async function connectDB(): Promise<void> {
-  if (isConnected) {
-    logger.info('📊 Using existing MongoDB connection');
-    return;
-  }
-
   try {
-    logger.info(`🔗 Connecting to MongoDB at ${config.MONGODB_URI}...`);
-
-    await mongoose.connect(config.MONGODB_URI, {
-      dbName: config.MONGODB_DB,
-      serverSelectionTimeoutMS: 5000,
-      connectTimeoutMS: 10000,
-    });
-
-    isConnected = true;
-    logger.info('✅ Connected to MongoDB successfully!');
-
-    // Handle connection events
-    mongoose.connection.on('disconnected', () => {
-      isConnected = false;
-      logger.warn('⚠️  MongoDB disconnected');
-    });
-
-    mongoose.connection.on('reconnected', () => {
-      isConnected = true;
-      logger.info('✅ MongoDB reconnected');
-    });
-
-    mongoose.connection.on('error', (error) => {
-      logger.error(`❌ MongoDB connection error: ${error.message}`);
-    });
+    const prismaClient = getPrismaClient();
+    await prismaClient.$queryRaw`SELECT 1`;
+    logger.info('✅ Connected to SQLite successfully!');
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    logger.error(`❌ Failed to connect to MongoDB: ${errorMessage}`);
+    logger.error(`❌ Failed to connect to SQLite: ${errorMessage}`);
     throw error;
   }
 }
 
 /**
- * Disconnect from MongoDB
+ * Disconnect from database
  */
 export async function disconnectDB(): Promise<void> {
-  if (!isConnected) return;
-
-  try {
-    await mongoose.disconnect();
-    isConnected = false;
-    logger.info('🔌 Disconnected from MongoDB');
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : String(error);
-    logger.error(`❌ Error disconnecting from MongoDB: ${errorMessage}`);
-    throw error;
+  if (prisma) {
+    try {
+      await prisma.$disconnect();
+      logger.info('🔌 Disconnected from SQLite');
+      prisma = null;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      logger.error(`❌ Error disconnecting from SQLite: ${errorMessage}`);
+      throw error;
+    }
   }
 }
 
 /**
- * Get Mongoose connection instance
+ * Get database client instance
  */
-export function getDB() {
-  return mongoose.connection;
+export function getDB(): PrismaClient {
+  return getPrismaClient();
 }
 
 /**
  * Check if connected
  */
-export function isDBConnected(): boolean {
-  return isConnected && mongoose.connection.readyState === 1;
+export async function isDBConnected(): Promise<boolean> {
+  try {
+    const client = getPrismaClient();
+    await client.$queryRaw`SELECT 1`;
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -86,11 +87,22 @@ export function isDBConnected(): boolean {
  */
 export async function getDBStats() {
   try {
-    const collections = await mongoose.connection.db?.listCollections().toArray();
+    const client = getPrismaClient();
+
+    const userCount = await client.user.count();
+    const adminCount = await client.admin.count();
+    const stockCount = await client.stock.count();
+    const gpioLogCount = await client.gPIOLog.count();
+
     const stats = {
-      connected: isConnected,
-      database: config.MONGODB_DB,
-      collections: collections?.map((c) => c.name) || [],
+      connected: await isDBConnected(),
+      database: 'SQLite',
+      tables: {
+        users: userCount,
+        admins: adminCount,
+        stock: stockCount,
+        gpioLogs: gpioLogCount,
+      },
     };
     return stats;
   } catch (error) {

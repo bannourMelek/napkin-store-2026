@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// User Model
+// ============================================================================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  passwordHash String
+  firstName String?
+  lastName  String?
+  phone     String?
+  role      String   @default("user") // 'user' | 'admin'
+  status    String   @default("active") // 'active' | 'inactive' | 'suspended'
+  preferences Json?
+  lastLogin DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  admin Admin?
+
+  @@index([email])
+  @@index([username])
+  @@index([role])
+  @@index([status])
+}
+
+// ============================================================================
+// Admin Model
+// ============================================================================
+
+model Admin {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  adminLevel String  @default("support") // 'superadmin' | 'moderator' | 'support'
+  permissions String? // JSON array stored as string
+  department String?
+  approvals Json?
+  activityLog Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([adminLevel])
+}
+
+// ============================================================================
+// Stock Model
+// ============================================================================
+
+model Stock {
+  id        String   @id @default(cuid())
+  itemName  String
+  description String?
+  sku       String   @unique
+  quantity  Int      @default(0)
+  reorderLevel Int   @default(20)
+  unit      String   @default("pack")
+  price     Float    @default(0)
+  supplier  String?
+  location  String?
+  category  String   @default("General")
+  batchNumber String?
+  expiryDate DateTime?
+  images    String?  // JSON array stored as string
+  tags      String?  // JSON array stored as string
+  lastRestocked DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sku])
+  @@index([category])
+  @@index([quantity])
+  @@index([location])
+  @@fulltext([itemName, description])
+}
+
+// ============================================================================
+// GPIO Log Model
+// ============================================================================
+
+model GPIOLog {
+  id        String   @id @default(cuid())
+  deviceId  String?
+  channel   Int
+  action    String   // 'pressed' | 'released' | 'triggered'
+  relayPin  Int
+  relayState String? // 'HIGH' | 'LOW' | 'ON' | 'OFF'
+  duration  Int?
+  metadata  Json?
+  userId    String?
+  createdAt DateTime @default(now())
+
+  @@index([channel])
+  @@index([relayPin])
+  @@index([createdAt])
+}

@@ -1,120 +1,103 @@
 /**
- * Mongoose Schemas & Models
- * All schemas with TypeScript interfaces
+ * Prisma Models & Types
+ * Re-export models from Prisma Client
  */
 
-import mongoose, { Schema, Document } from 'mongoose';
-import type { IUser, IAdmin, IStock, IGPIOLog } from '@/types/index.js';
+export { Prisma } from '@prisma/client';
+export type {
+  User,
+  Admin,
+  Stock,
+  GPIOLog,
+} from '@prisma/client';
 
-// ============================================================================
-// User Schema
-// ============================================================================
-
-export interface IUserDocument extends Omit<IUser, '_id'>, Document {
-  comparePassword(password: string): Promise<boolean>;
+// Type definitions for responses (without database internal fields)
+export interface IUserResponse {
+  id: string;
+  email: string;
+  username: string;
+  firstName?: string;
+  lastName?: string;
+  role: string;
+  status: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-const userSchema = new Schema<IUserDocument>(
-  {
-    email: {
-      type: String,
-      required: [true, 'Email is required'],
-      unique: true,
-      lowercase: true,
-      match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email'],
-    },
-    username: {
-      type: String,
-      required: [true, 'Username is required'],
-      unique: true,
-      minlength: 3,
-      maxlength: 30,
-    },
-    passwordHash: {
-      type: String,
-      required: [true, 'Password is required'],
-      minlength: 6,
-      select: false, // Don't include password by default in queries
-    },
-    firstName: String,
-    lastName: String,
-    phone: String,
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user',
-    },
-    status: {
-      type: String,
-      enum: ['active', 'inactive', 'suspended'],
-      default: 'active',
-    },
-    preferences: mongoose.Schema.Types.Mixed,
-    lastLogin: Date,
-  },
-  {
-    timestamps: true,
-    collection: 'users',
-  }
-);
+export interface IAdminResponse {
+  id: string;
+  userId: string;
+  adminLevel: string;
+  permissions?: string;
+  department?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-// Indexes
-userSchema.index({ email: 1 });
-userSchema.index({ username: 1 });
-userSchema.index({ role: 1 });
-userSchema.index({ status: 1 });
+export interface IStockResponse {
+  id: string;
+  itemName: string;
+  description?: string;
+  sku: string;
+  quantity: number;
+  reorderLevel: number;
+  unit: string;
+  price: number;
+  supplier?: string;
+  location?: string;
+  category: string;
+  batchNumber?: string;
+  expiryDate?: Date;
+  images?: string;
+  tags?: string;
+  lastRestocked?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-export const User = mongoose.model<IUserDocument>('User', userSchema);
+export interface IGPIOLogResponse {
+  id: string;
+  deviceId?: string;
+  channel: number;
+  action: string;
+  relayPin: number;
+  relayState?: string;
+  duration?: number;
+  metadata?: any;
+  userId?: string;
+  createdAt: Date;
+}
 
 // ============================================================================
-// Admin Schema
+// Re-export utility types for backward compatibility
 // ============================================================================
 
-export interface IAdminDocument extends Omit<IAdmin, '_id'>, Document {}
+export interface IUserDocument extends Omit<any, 'id'> {
+  id: string;
+  email: string;
+  username: string;
+}
 
-const adminSchema = new Schema<IAdminDocument>(
-  {
-    userId: {
-      type: String,
-      ref: 'User',
-      required: true,
-    },
-    adminLevel: {
-      type: String,
-      enum: ['superadmin', 'moderator', 'support'],
-      default: 'support',
-    },
-    permissions: [String],
-    department: String,
-    approvals: [mongoose.Schema.Types.Mixed],
-    activityLog: [
-      {
-        action: String,
-        timestamp: { type: Date, default: Date.now },
-        details: mongoose.Schema.Types.Mixed,
-      },
-    ],
-  },
-  {
-    timestamps: true,
-    collection: 'admins',
-  }
-);
+export interface IAdminDocument extends Omit<any, 'id'> {
+  id: string;
+  userId: string;
+}
 
-adminSchema.index({ userId: 1 });
-adminSchema.index({ adminLevel: 1 });
+export interface IStockDocument extends Omit<any, 'id'> {
+  id: string;
+  sku: string;
+}
 
-export const Admin = mongoose.model<IAdminDocument>('Admin', adminSchema);
+export interface IGPIOLogDocument extends Omit<any, 'id'> {
+  id: string;
+  channel: number;
+}
 
-// ============================================================================
-// Stock Schema
-// ============================================================================
 
-export interface IStockDocument extends Omit<IStock, '_id'>, Document {}
 
-const stockSchema = new Schema<IStockDocument>(
-  {
-    itemName: {
+// Note: All Mongoose models have been migrated to Prisma
+// Use the Prisma client from database.ts instead
+
       type: String,
       required: [true, 'Item name is required'],
     },

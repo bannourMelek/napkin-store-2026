@@ -6,99 +6,189 @@
  *   npm run db:seed
  */
 
-import { connectDB, disconnectDB } from '@/config/database.js';
-import { User, Admin, Stock, GPIOLog, Order, Transaction } from '@/models/index.js';
+import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 import logger from '@/utils/logger.js';
+
+const prisma = new PrismaClient();
 
 async function seedDatabase(): Promise<void> {
   try {
-    logger.info('🔌 Connecting to MongoDB...');
-    await connectDB();
+    logger.info('🔌 Connecting to SQLite database...');
 
-    logger.info('📝 Inserting sample data...');
+    logger.info('📝 Clearing existing data...');
+    
+    // Delete in order to respect foreign keys
+    await prisma.gPIOLog.deleteMany({});
+    await prisma.admin.deleteMany({});
+    await prisma.user.deleteMany({});
+    await prisma.stock.deleteMany({});
 
-    // Clear existing data
-    await Promise.all([
-      User.deleteMany({}),
-      Stock.deleteMany({}),
-      Admin.deleteMany({}),
-      GPIOLog.deleteMany({}),
-      Order.deleteMany({}),
-      Transaction.deleteMany({}),
-    ]);
+    logger.info('✅ Cleared existing data');
 
     // ============================================================================
     // USERS
     // ============================================================================
-    const users = await User.insertMany([
-      {
-        email: 'john.doe@example.com',
-        username: 'john_doe',
-        passwordHash: 'hashed_password_123',
-        firstName: 'John',
-        lastName: 'Doe',
-        phone: '+1234567890',
-        role: 'user',
-        status: 'active',
-      },
-      {
-        email: 'jane.smith@example.com',
-        username: 'jane_smith',
-        passwordHash: 'hashed_password_456',
-        firstName: 'Jane',
-        lastName: 'Smith',
-        phone: '+1987654321',
-        role: 'user',
-        status: 'active',
-      },
-      {
-        email: 'bob.wilson@example.com',
-        username: 'bob_wilson',
-        passwordHash: 'hashed_password_789',
-        firstName: 'Bob',
-        lastName: 'Wilson',
-        phone: '+1555555555',
-        role: 'user',
-        status: 'active',
-      },
-      {
-        email: 'alice.johnson@example.com',
-        username: 'alice_johnson',
-        passwordHash: 'hashed_password_101',
-        firstName: 'Alice',
-        lastName: 'Johnson',
-        phone: '+1666666666',
-        role: 'user',
-        status: 'active',
-      },
-      {
-        email: 'admin@example.com',
-        username: 'admin_user',
-        passwordHash: 'hashed_admin_password',
-        firstName: 'Admin',
-        lastName: 'User',
-        phone: '+1777777777',
-        role: 'admin',
-        status: 'active',
-      },
-      {
-        email: 'superadmin@example.com',
-        username: 'superadmin',
-        passwordHash: 'hashed_superadmin_password',
-        firstName: 'Super',
-        lastName: 'Admin',
-        phone: '+1888888888',
-        role: 'admin',
-        status: 'active',
-      },
-    ]);
+    const hashedPassword = await bcrypt.hash('password123', 10);
 
-    logger.info(`✅ Created ${users.length} users`);
+    const users = await prisma.user.createMany({
+      data: [
+        {
+          email: 'john.doe@example.com',
+          username: 'john_doe',
+          passwordHash: hashedPassword,
+          firstName: 'John',
+          lastName: 'Doe',
+          phone: '+1234567890',
+          role: 'user',
+          status: 'active',
+        },
+        {
+          email: 'jane.smith@example.com',
+          username: 'jane_smith',
+          passwordHash: hashedPassword,
+          firstName: 'Jane',
+          lastName: 'Smith',
+          phone: '+1987654321',
+          role: 'user',
+          status: 'active',
+        },
+        {
+          email: 'admin@example.com',
+          username: 'admin_user',
+          passwordHash: hashedPassword,
+          firstName: 'Admin',
+          lastName: 'User',
+          phone: '+1777777777',
+          role: 'admin',
+          status: 'active',
+        },
+        {
+          email: 'superadmin@example.com',
+          username: 'superadmin',
+          passwordHash: hashedPassword,
+          firstName: 'Super',
+          lastName: 'Admin',
+          phone: '+1888888888',
+          role: 'admin',
+          status: 'active',
+        },
+      ],
+    });
+
+    logger.info(`✅ Created ${users.count} users`);
 
     // ============================================================================
     // ADMIN PROFILES
     // ============================================================================
-    const adminProfiles = await Admin.insertMany([
+    const adminUsers = await prisma.user.findMany({
+      where: { role: 'admin' },
+      select: { id: true },
+    });
+
+    const admins = await prisma.admin.createMany({
+      data: adminUsers.map((user, index) => ({
+        userId: user.id,
+        adminLevel: index === 0 ? 'superadmin' : 'moderator',
+        permissions: JSON.stringify(['read', 'write', 'delete']),
+        department: index === 0 ? 'Management' : 'Support',
+      })),
+    });
+
+    logger.info(`✅ Created ${admins.count} admin profiles`);
+
+    // ============================================================================
+    // STOCK
+    // ============================================================================
+    const stock = await prisma.stock.createMany({
+      data: [
+        {
+          itemName: 'Wireless Mouse',
+          description: 'Ergonomic wireless mouse with 2.4GHz connection',
+          sku: 'MOUSE-W001',
+          quantity: 150,
+          reorderLevel: 50,
+          unit: 'piece',
+          price: 25.99,
+          supplier: 'TechSupply Inc.',
+          location: 'Shelf A1',
+          category: 'Electronics',
+          images: JSON.stringify(['mouse-1.jpg', 'mouse-2.jpg']),
+          tags: JSON.stringify(['wireless', 'mouse', 'computer']),
+        },
+        {
+          itemName: 'USB-C Cable',
+          description: '2m USB-C charging and data cable',
+          sku: 'CABLE-USB-C-2M',
+          quantity: 300,
+          reorderLevel: 100,
+          unit: 'piece',
+          price: 12.99,
+          supplier: 'CableWorld',
+          location: 'Shelf B2',
+          category: 'Cables',
+          images: JSON.stringify(['cable-1.jpg']),
+          tags: JSON.stringify(['usb-c', 'cable', 'charging']),
+        },
+        {
+          itemName: 'Laptop Stand',
+          description: 'Adjustable aluminum laptop stand',
+          sku: 'STAND-LAP-001',
+          quantity: 75,
+          reorderLevel: 20,
+          unit: 'piece',
+          price: 45.99,
+          supplier: 'TechFurniture Ltd.',
+          location: 'Shelf C3',
+          category: 'Accessories',
+          images: JSON.stringify(['stand-1.jpg', 'stand-2.jpg', 'stand-3.jpg']),
+          tags: JSON.stringify(['stand', 'laptop', 'desk']),
+        },
+      ],
+    });
+
+    logger.info(`✅ Created ${stock.count} stock items`);
+
+    // ============================================================================
+    // GPIO LOGS
+    // ============================================================================
+    const gpioLogs = await prisma.gPIOLog.createMany({
+      data: [
+        {
+          deviceId: 'device-001',
+          channel: 1,
+          action: 'triggered',
+          relayPin: 16,
+          relayState: 'HIGH',
+          duration: 1500,
+          metadata: JSON.stringify({ sensor: 'motion', zone: 'entrance' }),
+        },
+        {
+          deviceId: 'device-002',
+          channel: 2,
+          action: 'pressed',
+          relayPin: 21,
+          relayState: 'LOW',
+          duration: 200,
+        },
+      ],
+    });
+
+    logger.info(`✅ Created ${gpioLogs.count} GPIO logs`);
+
+    logger.info('🎉 Database seeding complete!');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    logger.error(`❌ Database seeding failed: ${message}`);
+    console.error(error);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+seedDatabase();
+
       {
         userId: users[4]._id?.toString() || '',
         adminLevel: 'moderator',

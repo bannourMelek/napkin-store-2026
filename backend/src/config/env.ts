@@ -14,8 +14,7 @@ export const config = {
   HOST: process.env.HOST || '0.0.0.0',
 
   // Database
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/napkin_store_db',
-  MONGODB_DB: process.env.MONGODB_DB || 'napkin_store_db',
+  DATABASE_URL: process.env.DATABASE_URL || 'file:./prisma/dev.db',
 
   // JWT
   JWT_SECRET: process.env.JWT_SECRET || 'your-secret-key-change-in-production',

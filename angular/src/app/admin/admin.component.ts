@@ -6,6 +6,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { StockService } from '../services/stock.service';
 import { GpioService } from '../services/gpio.service';
+import { GPIO_CONFIG } from '../config/gpio.config';
 
 @Component({
   selector: 'app-admin',
@@ -17,14 +18,7 @@ import { GpioService } from '../services/gpio.service';
 export class AdminComponent implements OnInit, AfterViewInit {
   @ViewChild('stockAMinusBtn') stockAMinusBtn: ElementRef | undefined;
 
-  admin = {
-    mat: 12345,
-    name: 'John Doe',
-    org: 'Boy Scouts',
-    jobName: 'Scoutmaster',
-    badgeNum: 789,
-    badgeId: 'BS-12345-789',
-  };
+  admin: any;
   loading = false;
 
   stock = {
@@ -38,17 +32,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
     private stockService: StockService,
     private gpioService: GpioService
   ) {
-    // this.admin = this.route.snapshot.paramMap.get('admin');
-    // this.admin = JSON.parse(this.admin);
-    this.admin = {
-      mat: 12345,
-      name: 'John Doe',
-      org: 'Boy Scouts',
-      jobName: 'Scoutmaster',
-      badgeNum: 789,
-      badgeId: 'BS-12345-789',
+    const adminParam = this.route.snapshot.paramMap.get('admin');
+    if (adminParam) {
+      this.admin = JSON.parse(adminParam);
     }
-
   }
 
   ngOnInit(): void {
@@ -60,20 +47,21 @@ export class AdminComponent implements OnInit, AfterViewInit {
         console.log(err);
       }
     );
-    this.gpioService.disableButton(5).subscribe(
+    // Disable GPIO buttons to simulate hardware button clicks for product retrieval
+    this.gpioService.disableButton(GPIO_CONFIG.BUTTON_PIN_A).subscribe(
       (data) => {
-        console.log(data);
+        console.log('Button A disabled:', data);
       },
       (err) => {
-        console.log(err);
+        console.log('Button A disable error:', err);
       }
     );
-    this.gpioService.disableButton(6).subscribe(
+    this.gpioService.disableButton(GPIO_CONFIG.BUTTON_PIN_B).subscribe(
       (data) => {
-        console.log(data);
+        console.log('Button B disabled:', data);
       },
       (err) => {
-        console.log(err);
+        console.log('Button B disable error:', err);
       }
     );
   }
@@ -81,7 +69,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // Ensure change detection has run before accessing ViewChild
     this.changeDetectorRef.detectChanges();
-    
+
     // Focus on the first button after view initialization
     if (this.stockAMinusBtn?.nativeElement) {
       this.stockAMinusBtn.nativeElement.focus();

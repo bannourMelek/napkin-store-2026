@@ -1,71 +1,77 @@
 /**
- * Shared Type Definitions
- * These can be imported by both frontend and backend
- * 
- * Export to frontend: Copy this file to napkin-store-frontend/src/app/shared/types/
+ * Shared Type Definitions - Matches Frontend Entities
  */
 
 // ============================================================================
 // User Types
 // ============================================================================
 
-export interface IUser {
-  _id?: string;
-  email: string;
-  username: string;
-  passwordHash: string;
-  firstName?: string;
-  lastName?: string;
-  phone?: string;
-  role: 'user' | 'admin';
-  status: 'active' | 'inactive' | 'suspended';
+export interface User {
+  id?: string;
+  mat: string;
+  name: string;
+  org?: string;
+  direct?: string;
+  costCenter?: number;
+  birthday?: string;
+  schoolLevel?: string;
+  department?: string;
+  jobName: string;
+  badgeNum: number;
+  superior?: string;
+  stock: number;
+  badgeId: string;
   createdAt?: Date;
   updatedAt?: Date;
-  lastLogin?: Date;
-  preferences?: Record<string, any>;
 }
 
 export interface IUserDTO {
-  email: string;
-  username: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-  phone?: string;
+  mat: string;
+  name: string;
+  org?: string;
+  direct?: string;
+  costCenter?: number;
+  birthday?: string;
+  schoolLevel?: string;
+  department?: string;
+  jobName: string;
+  badgeNum: number;
+  superior?: string;
+  stock?: number;
+  badgeId: string;
 }
 
-export interface IUserResponse {
-  _id: string;
-  email: string;
-  username: string;
-  firstName?: string;
-  lastName?: string;
-  role: 'user' | 'admin';
-  status: 'active' | 'inactive' | 'suspended';
-  createdAt: Date;
-  updatedAt: Date;
+export interface IUserResponse extends User {
+  id: string;
 }
 
 // ============================================================================
 // Admin Types
 // ============================================================================
 
-export interface IAdmin {
-  _id?: string;
-  userId: string;
-  adminLevel: 'superadmin' | 'moderator' | 'support';
-  permissions: string[];
-  department?: string;
-  approvals?: any[];
-  activityLog?: IActivityLog[];
+export interface Admin {
+  id?: string;
+  mat: string;
+  name: string;
+  org?: string;
+  jobName: string;
+  badgeNum: number;
+  badgeId: string;
   createdAt?: Date;
-  lastActive?: Date;
+  updatedAt?: Date;
 }
 
-export interface IActivityLog {
-  action: string;
-  timestamp: Date;
-  details?: Record<string, any>;
+export interface IAdminDTO {
+  mat: string;
+  name: string;
+  org?: string;
+  jobName: string;
+  badgeNum: number;
+  badgeId: string;
+}
+
+export interface IAdminResponse extends Admin {
+  id: string;
 }
 
 // ============================================================================
@@ -98,6 +104,56 @@ export interface IStockDTO {
   description?: string;
   sku: string;
   quantity: number;
+  reorderLevel?: number;
+  unit?: string;
+  price?: number;
+  supplier?: string;
+  location: string;
+  category?: string;
+  batchNumber?: string;
+  expiryDate?: Date;
+  images?: string[];
+  tags?: string[];
+}
+
+// ============================================================================
+// GPIO Types
+// ============================================================================
+
+export interface IGPIOLog {
+  id: string;
+  deviceId?: string;
+  channel: number;
+  action: string;
+  relayPin: number;
+  relayState?: string;
+  duration?: number;
+  metadata?: any;
+  userId?: string;
+  createdAt: Date;
+}
+
+export interface IGPIOLogDTO {
+  deviceId?: string;
+  channel: number;
+  action: string;
+  relayPin: number;
+  relayState?: string;
+  duration?: number;
+  metadata?: any;
+  userId?: string;
+}
+
+// ============================================================================
+// Error Types
+// ============================================================================
+
+export class AppError extends Error {
+  constructor(public statusCode: number, message: string) {
+    super(message);
+    Object.setPrototypeOf(this, AppError.prototype);
+  }
+}
   reorderLevel?: number;
   unit?: string;
   price?: number;

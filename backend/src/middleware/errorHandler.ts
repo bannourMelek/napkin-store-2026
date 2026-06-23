@@ -32,27 +32,7 @@ export function errorHandler(
     return;
   }
 
-  // Mongoose validation error
-  if (err.name === 'ValidationError') {
-    res.status(400).json({
-      success: false,
-      error: 'Validation error',
-      details: err.message,
-      timestamp: new Date(),
-    });
-    return;
-  }
-
-  // Mongoose duplicate key error
-  if ((err as any).code === 11000) {
-    const field = Object.keys((err as any).keyPattern)[0];
-    res.status(409).json({
-      success: false,
-      error: `${field} already exists`,
-      timestamp: new Date(),
-    });
-    return;
-  }
+  // Prisma/SQLite errors are handled by AppError above
 
   // Default error
   res.status(500).json({

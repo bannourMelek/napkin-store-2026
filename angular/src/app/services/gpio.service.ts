@@ -19,11 +19,12 @@ export class GpioService {
 
   enableButton(pinButton: number) {
     const params = new HttpParams().set("pinButton", pinButton);
-    return this.http.get<any>(environment.apiUrl + 'gpio/turn-on-button', { params });
+    return this.http.get<any>(environment.apiUrl + 'turn-on-button', { params });
   }
 
   disableButton(pinButton: number) {
     const params = new HttpParams().set("pinButton", pinButton);
-    return this.http.get<any>(environment.apiUrl + 'gpio/turn-off-button', { params });
+    return this.http.get<any>(environment.apiUrl + 'turn-off-button', { params });
   }
 }
+

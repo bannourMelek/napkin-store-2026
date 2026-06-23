@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../entities/user';
 import { StockService } from '../services/stock.service';
 import { GpioService } from '../services/gpio.service';
+import { GPIO_CONFIG } from '../config/gpio.config';
 import { SignupEmployeeDialogComponent } from './signup-employee-dialog.component';
 import { SignupNewEmployeeDialogComponent } from './signup-new-employee-dialog.component';
 import { SignupBadgeDialogComponent } from './signup-badge-dialog.component';
@@ -54,20 +55,21 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.gpioService.disableButton(5).subscribe(
+    // Disable GPIO buttons to simulate hardware button clicks for product retrieval
+    this.gpioService.disableButton(GPIO_CONFIG.BUTTON_PIN_A).subscribe(
       (data) => {
-        console.log(data);
+        console.log('Button A disabled:', data);
       },
       (err) => {
-        console.log(err);
+        console.log('Button A disable error:', err);
       }
     );
-    this.gpioService.disableButton(6).subscribe(
+    this.gpioService.disableButton(GPIO_CONFIG.BUTTON_PIN_B).subscribe(
       (data) => {
-        console.log(data);
+        console.log('Button B disabled:', data);
       },
       (err) => {
-        console.log(err);
+        console.log('Button B disable error:', err);
       }
     );
     this.stockService.getStock().subscribe(

@@ -11,51 +11,53 @@ datasource db {
 }
 
 // ============================================================================
-// User Model
+// User Model - Matches Frontend User Entity
 // ============================================================================
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  username  String   @unique
-  passwordHash String
-  firstName String?
-  lastName  String?
-  phone     String?
-  role      String   @default("user") // 'user' | 'admin'
-  status    String   @default("active") // 'active' | 'inactive' | 'suspended'
-  preferences Json?
-  lastLogin DateTime?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String   @id @default(cuid())
+  mat             String   @unique
+  name            String
+  org             String?
+  direct          String?
+  costCenter      Int?
+  birthday        String?
+  schoolLevel     String?
+  department      String?
+  jobName         String
+  badgeNum        Int
+  superior        String?
+  stock           Int      @default(0)
+  badgeId         String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
-  admin Admin?
+  admin           Admin?
 
-  @@index([email])
-  @@index([username])
-  @@index([role])
-  @@index([status])
+  @@index([mat])
+  @@index([badgeId])
+  @@index([org])
+  @@index([department])
 }
 
 // ============================================================================
-// Admin Model
+// Admin Model - Matches Frontend Admin Entity
 // ============================================================================
 
 model Admin {
-  id        String   @id @default(cuid())
-  userId    String   @unique
-  adminLevel String  @default("support") // 'superadmin' | 'moderator' | 'support'
-  permissions String? // JSON array stored as string
-  department String?
-  approvals Json?
-  activityLog Json?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String   @id @default(cuid())
+  mat             String   @unique
+  name            String
+  org             String?
+  jobName         String
+  badgeNum        Int
+  badgeId         String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-  @@index([adminLevel])
+  @@index([mat])
+  @@index([badgeId])
+  @@index([org])
 }
 
 // ============================================================================

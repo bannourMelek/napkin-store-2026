@@ -1,9 +1,10 @@
 /**
  * GPIO Controller
+ * Updated to use Prisma
  */
 
 import { Request, Response } from 'express';
-import { GPIOLog } from '@/models/index.js';
+import { prisma } from '@/models/index.js';
 import { asyncHandler } from '@/middleware/errorHandler.js';
 import { AppError } from '@/types/index.js';
 import logger from '@/utils/logger.js';
@@ -15,6 +16,56 @@ import logger from '@/utils/logger.js';
 const activePinDetection = new Set<number>();
 
 /**
+ * Control GPIO relay - activate and deactivate
+ * POST /gpio with { relaisPin }
+ */
+export const controlGPIO = asyncHandler(async (req: Request, res: Response) => {
+  const { relaisPin } = req.body;
+
+  if (!relaisPin) {
+    throw new AppError(400, 'relaisPin is required');
+  }
+
+  try {
+    const pin = parseInt(relaisPin as string, 10);
+    
+    // In development/mock mode, just log and return success
+    // In production with actual GPIO hardware, this would control the physical pin
+    logger.info(`GPIO relay activated on pin ${pin}`);
+    
+    // Simulate 0.5 second pulse (in real code, would use GPIO library)
+    // GPIO.output(relaisPin, GPIO.HIGH)
+    // setTimeout(() => GPIO.output(relaisPin, GPIO.LOW), 500)
+    
+    res.json({
+      message: 'Relais turned successfully',
+    });
+  } catch (err) {
+    throw new AppError(500, 'Failed to control GPIO relay');
+  }
+});
+
+/**
+ * GPIO cleanup - disable all GPIO pins
+ * DELETE /gpio
+ */
+export const gpioCleanup = asyncHandler(async (req: Request, res: Response) => {
+  try {
+    // In production with actual GPIO, this would clean up all pins
+    // GPIO.cleanup()
+    
+    activePinDetection.clear();
+    logger.info('GPIO cleanup completed');
+    
+    res.json({
+      message: 'cleanup successfully',
+    });
+  } catch (err) {
+    throw new AppError(500, 'Failed to cleanup GPIO');
+  }
+});
+
+/**
  * Get GPIO logs
  */
 export const getGPIOLogs = asyncHandler(async (req: Request, res: Response) => {
@@ -23,8 +74,12 @@ export const getGPIOLogs = asyncHandler(async (req: Request, res: Response) => {
   const skip = (page - 1) * limit;
 
   const [logs, total] = await Promise.all([
-    GPIOLog.find({}).sort({ timestamp: -1 }).skip(skip).limit(limit),
-    GPIOLog.countDocuments({}),
+    prisma.gPIOLog.findMany({
+      orderBy: { createdAt: 'desc' },
+      skip,
+      take: limit,
+    }),
+    prisma.gPIOLog.count(),
   ]);
 
   res.json({
@@ -47,7 +102,11 @@ export const getDeviceLogs = asyncHandler(async (req: Request, res: Response) =>
   const { deviceId } = req.params;
   const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : 50;
 
-  const logs = await GPIOLog.find({ deviceId }).sort({ timestamp: -1 }).limit(limit);
+  const logs = await prisma.gPIOLog.findMany({
+    where: { deviceId },
+    orderBy: { createdAt: 'desc' },
+    take: limit,
+  });
 
   res.json({
     success: true,
@@ -58,28 +117,31 @@ export const getDeviceLogs = asyncHandler(async (req: Request, res: Response) =>
 });
 
 /**
- * Get GPIO stats (requires GPIO service)
+ * Get GPIO stats
  */
 export const getGPIOStats = asyncHandler(async (req: Request, res: Response) => {
-  const stats = await GPIOLog.aggregate([
-    {
-      $group: {
-        _id: '$channel',
-        count: { $sum: 1 },
-        lastActivated: { $max: '$timestamp' },
-        successCount: {
-          $sum: { $cond: [{ $eq: ['$status', 'success'] }, 1, 0] },
-        },
-        failureCount: {
-          $sum: { $cond: [{ $eq: ['$status', 'failed'] }, 1, 0] },
-        },
-      },
-    },
-  ]);
+  const logs = await prisma.gPIOLog.findMany();
+
+  // Group by channel and calculate stats
+  const stats = logs.reduce((acc: any, log: any) => {
+    const key = log.channel;
+    if (!acc[key]) {
+      acc[key] = {
+        _id: log.channel,
+        count: 0,
+        lastActivated: log.createdAt,
+      };
+    }
+    acc[key].count += 1;
+    if (new Date(log.createdAt) > new Date(acc[key].lastActivated)) {
+      acc[key].lastActivated = log.createdAt;
+    }
+    return acc;
+  }, {});
 
   res.json({
     success: true,
-    data: stats,
+    data: Object.values(stats),
     timestamp: new Date(),
   });
 });
@@ -88,31 +150,28 @@ export const getGPIOStats = asyncHandler(async (req: Request, res: Response) => 
  * Log GPIO event (called by GPIO service)
  */
 export const logGPIOEvent = asyncHandler(async (req: Request, res: Response) => {
-  const { channel, action, relayPin, relayState, duration, status, errorMessage, userId, metadata } = req.body;
+  const { channel, action, relayPin, relayState, duration, userId, metadata } = req.body;
 
   if (!channel || !action) {
     throw new AppError(400, 'channel and action are required');
   }
 
-  const log = new GPIOLog({
-    channel,
-    action,
-    relayPin,
-    relayState,
-    duration,
-    timestamp: new Date(),
-    status: status || 'success',
-    errorMessage,
-    userId,
-    metadata,
+  const log = await prisma.gPIOLog.create({
+    data: {
+      channel,
+      action,
+      relayPin,
+      relayState,
+      duration,
+      userId,
+      metadata,
+    },
   });
-
-  const savedLog = await log.save();
 
   res.status(201).json({
     success: true,
     message: 'GPIO event logged',
-    data: savedLog,
+    data: log,
     timestamp: new Date(),
   });
 });
@@ -130,15 +189,19 @@ export const clearOldLogs = asyncHandler(async (req: Request, res: Response) => 
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - days);
 
-  const result = await GPIOLog.deleteMany({
-    timestamp: { $lt: cutoffDate },
+  const result = await prisma.gPIOLog.deleteMany({
+    where: {
+      createdAt: {
+        lt: cutoffDate,
+      },
+    },
   });
 
   res.json({
     success: true,
-    message: `Deleted ${result.deletedCount} logs older than ${days} days`,
+    message: `Deleted ${result.count} logs older than ${days} days`,
     data: {
-      deletedCount: result.deletedCount,
+      deletedCount: result.count,
     },
     timestamp: new Date(),
   });
@@ -156,7 +219,7 @@ export const turnOffButton = asyncHandler(async (req: Request, res: Response) =>
   }
 
   const pin = parseInt(pinButton, 10);
-  
+
   if (isNaN(pin)) {
     throw new AppError(400, 'pinButton must be a valid integer');
   }
@@ -167,13 +230,7 @@ export const turnOffButton = asyncHandler(async (req: Request, res: Response) =>
   logger.info(`Event detection disabled for GPIO pin ${pin}`);
 
   return res.json({
-    success: true,
     message: `Event detection removed for GPIO pin ${pin}`,
-    data: {
-      pin,
-      status: 'disabled',
-    },
-    timestamp: new Date(),
   });
 });
 
@@ -189,7 +246,7 @@ export const turnOnButton = asyncHandler(async (req: Request, res: Response) => 
   }
 
   const pin = parseInt(pinButton, 10);
-  
+
   if (isNaN(pin)) {
     throw new AppError(400, 'pinButton must be a valid integer');
   }
@@ -197,13 +254,7 @@ export const turnOnButton = asyncHandler(async (req: Request, res: Response) => 
   // Check if event detection is already active for this pin
   if (activePinDetection.has(pin)) {
     return res.json({
-      success: true,
       message: `Event detection already set up for GPIO pin ${pin}`,
-      data: {
-        pin,
-        status: 'already_active',
-      },
-      timestamp: new Date(),
     });
   }
 
@@ -213,12 +264,6 @@ export const turnOnButton = asyncHandler(async (req: Request, res: Response) => 
   logger.info(`Event detection enabled for GPIO pin ${pin}`);
 
   return res.json({
-    success: true,
     message: `Event detection added for GPIO pin ${pin}`,
-    data: {
-      pin,
-      status: 'enabled',
-    },
-    timestamp: new Date(),
   });
 });

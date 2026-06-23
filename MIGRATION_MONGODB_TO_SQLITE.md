@@ -7,7 +7,7 @@ The Napkin Store backend has been migrated from MongoDB (Mongoose) to SQLite wit
 
 ### 1. **Dependencies Updated**
 - ✅ Removed: `mongoose` 
-- ✅ Added: `@prisma/client`, `@prisma/cli`, `@prisma/adapter-sqlite`, `better-sqlite3`
+- ✅ Added: `@prisma/client`, `@prisma/cli`, `better-sqlite3`
 
 ### 2. **Database Configuration**
 - **Old**: `MONGODB_URI` and `MONGODB_DB` environment variables
@@ -38,7 +38,7 @@ backend/
 ```bash
 cd backend
 npm install
-npm install @prisma/adapter-sqlite better-sqlite3
+npm install better-sqlite3
 ```
 
 ### 2. Create Environment File
@@ -174,21 +174,8 @@ datasource db {
 }
 ```
 
-### `prisma.config.ts`
-Manages database connection and adapter configuration:
-```typescript
-import { defineConfig } from '@prisma/internals';
-
-const databaseUrl = process.env.DATABASE_URL || 'file:./prisma/dev.db';
-
-export default defineConfig({
-  datasources: {
-    db: {
-      url: databaseUrl,
-    },
-  },
-});
-```
+### `prisma.config.ts` (Optional)
+For Prisma v7 with SQLite, the DATABASE_URL from `.env` is automatically detected. No special configuration needed.
 
 ## Common Issues & Solutions
 
@@ -206,6 +193,9 @@ mkdir -p prisma
 ```typescript
 import { getPrismaClient } from '@/config/database.js';
 const prisma = getPrismaClient();
+```The schema.prisma should NOT have a `url` in the datasource block. DATABASE_URL should be in `.env` file instead:
+```env
+DATABASE_URL="file:./prisma/dev.db"
 ```
 
 ### Issue: "Type errors with Prisma models"
@@ -225,10 +215,10 @@ If you have existing MongoDB data, use Prisma's import tools or ETL scripts:
 
 ```typescript
 import { getPrismaClient } from '@/config/database.js';
+
 const prisma = getPrismaClient();
 
 // Batch import
-await prisma.user.createMany({
   data: transformedUsers,
   skipDuplicates: true,
 });

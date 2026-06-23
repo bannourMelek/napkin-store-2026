@@ -117,57 +117,12 @@ export interface IStockDTO {
 }
 
 // ============================================================================
-// GPIO Types
-// ============================================================================
-
-export interface IGPIOLog {
-  id: string;
-  deviceId?: string;
-  channel: number;
-  action: string;
-  relayPin: number;
-  relayState?: string;
-  duration?: number;
-  metadata?: any;
-  userId?: string;
-  createdAt: Date;
-}
-
-export interface IGPIOLogDTO {
-  deviceId?: string;
-  channel: number;
-  action: string;
-  relayPin: number;
-  relayState?: string;
-  duration?: number;
-  metadata?: any;
-  userId?: string;
-}
-
-// ============================================================================
-// Error Types
-// ============================================================================
-
-export class AppError extends Error {
-  constructor(public statusCode: number, message: string) {
-    super(message);
-    Object.setPrototypeOf(this, AppError.prototype);
-  }
-}
-  reorderLevel?: number;
-  unit?: string;
-  price?: number;
-  supplier?: string;
-  location?: string;
-  category?: string;
-}
-
-// ============================================================================
 // GPIO & Hardware Types
 // ============================================================================
 
 export interface IGPIOLog {
   _id?: string;
+  id?: string;
   deviceId?: string;
   channel: number;
   action: 'pressed' | 'released' | 'triggered';
@@ -176,6 +131,20 @@ export interface IGPIOLog {
   duration?: number;
   timestamp: Date;
   status: 'success' | 'failed' | 'timeout';
+  errorMessage?: string;
+  userId?: string;
+  metadata?: Record<string, any>;
+  createdAt?: Date;
+}
+
+export interface IGPIOLogDTO {
+  deviceId?: string;
+  channel: number;
+  action: 'pressed' | 'released' | 'triggered';
+  relayPin: number;
+  relayState: 'HIGH' | 'LOW' | 'ON' | 'OFF';
+  duration?: number;
+  status?: 'success' | 'failed' | 'timeout';
   errorMessage?: string;
   userId?: string;
   metadata?: Record<string, any>;
@@ -283,7 +252,7 @@ export interface IJwtPayload {
 }
 
 // ============================================================================
-// Error Types
+// Error & Exception Types
 // ============================================================================
 
 export class AppError extends Error {

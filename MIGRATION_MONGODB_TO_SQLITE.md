@@ -7,11 +7,12 @@ The Napkin Store backend has been migrated from MongoDB (Mongoose) to SQLite wit
 
 ### 1. **Dependencies Updated**
 - ✅ Removed: `mongoose` 
-- ✅ Added: `@prisma/client`, `@prisma/cli`
+- ✅ Added: `@prisma/client`, `@prisma/cli`, `@prisma/adapter-sqlite`, `better-sqlite3`
 
 ### 2. **Database Configuration**
 - **Old**: `MONGODB_URI` and `MONGODB_DB` environment variables
 - **New**: `DATABASE_URL=file:./prisma/dev.db` in `.env`
+- **Config**: `prisma.config.ts` handles connection URL (Prisma v7.0+)
 
 ### 3. **File Structure Changes**
 ```
@@ -19,6 +20,7 @@ backend/
 ├── prisma/
 │   ├── schema.prisma    (new) - Prisma schema definition
 │   └── dev.db          (new) - SQLite database file
+├── prisma.config.ts    (new) - Prisma configuration with database adapter
 ├── src/
 │   ├── config/
 │   │   ├── database.ts   (updated) - Now uses Prisma client
@@ -36,23 +38,33 @@ backend/
 ```bash
 cd backend
 npm install
+npm install @prisma/adapter-sqlite better-sqlite3
 ```
 
-### 2. Initialize Database
+### 2. Create Environment File
+Create `.env` in the `backend/` directory:
+```env
+DATABASE_URL="file:./prisma/dev.db"
+NODE_ENV=development
+PORT=3000
+JWT_SECRET=your-secret-key-here
+```
+
+### 3. Initialize Database
 ```bash
 # Generate Prisma client and create database
-npx prisma migrate deploy
-
-# Or create from schema (first time)
 npx prisma db push
+
+# Verify database setup
+npx prisma studio
 ```
 
-### 3. Seed Sample Data (Optional)
+### 4. Seed Sample Data (Optional)
 ```bash
 npm run db:seed
 ```
 
-### 4. Start Development Server
+### 5. Start Development Server
 ```bash
 npm run dev
 ```
@@ -139,7 +151,49 @@ const user = await prisma.user.findUnique({ where: { id } });
 - `userId`: String (optional)
 - `createdAt`: DateTime
 
+## Configuration Files
+
+### `.env` (Environment Variables)
+```env
+DATABASE_URL="file:./prisma/dev.db"
+NODE_ENV=development
+PORT=3000
+JWT_SECRET=your-secret-key-here
+LOG_LEVEL=info
+```
+
+### `prisma/schema.prisma`
+Defines all data models without the connection URL (URL is now in `prisma.config.ts`):
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+```
+
+### `prisma.config.ts`
+Manages database connection and adapter configuration:
+```typescript
+import { defineConfig } from '@prisma/internals';
+
+const databaseUrl = process.env.DATABASE_URL || 'file:./prisma/dev.db';
+
+export default defineConfig({
+  datasources: {
+    db: {
+      url: databaseUrl,
+    },
+  },
+});
+```
+
 ## Common Issues & Solutions
+
+### Issue: "datasource url is no longer supported in schema files"
+**Solution**: Ensure you have created `prisma.config.ts` in the backend root directory with database adapter configuration.
 
 ### Issue: "Error: ENOENT: no such file or directory"
 **Solution**: Ensure `prisma/` folder exists

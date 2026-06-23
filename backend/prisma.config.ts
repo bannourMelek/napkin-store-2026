@@ -1,3 +1,10 @@
-// Prisma configuration for SQLite with better-sqlite3
-// DATABASE_URL is read from .env file
-// No additional configuration needed for SQLite with Prisma v7+
+// Prisma configuration for SQLite
+// This file is required for Prisma v7+ to specify the database URL
+
+const databaseUrl = 'file:./prisma/dev.db';
+
+export const datasources = {
+    db: {
+        url: databaseUrl,
+    },
+};

@@ -163,7 +163,7 @@ LOG_LEVEL=info
 ```
 
 ### `prisma/schema.prisma`
-Defines all data models without the connection URL (URL is now in `prisma.config.ts`):
+Defines all data models with the database connection URL from environment:
 ```prisma
 generator client {
   provider = "prisma-client-js"
@@ -171,16 +171,35 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 ```
 
-### `prisma.config.ts` (Optional)
-For Prisma v7 with SQLite, the DATABASE_URL from `.env` is automatically detected. No special configuration needed.
+### `prisma.config.ts`
+Required for Prisma v7+ to define the database datasource:
+```typescript
+import { defineConfig } from '@prisma/internals';
+
+export default defineConfig({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL || 'file:./prisma/dev.db',
+    },
+  },
+});
+```
 
 ## Common Issues & Solutions
 
-### Issue: "datasource url is no longer supported in schema files"
-**Solution**: Ensure you have created `prisma.config.ts` in the backend root directory with database adapter configuration.
+### Issue: "datasource.url property is required"
+**Solution**: Add `url = env("DATABASE_URL")` to the datasource in `prisma/schema.prisma`:
+```prisma
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+```
+And ensure `.env` has: `DATABASE_URL="file:./prisma/dev.db"`
 
 ### Issue: "Error: ENOENT: no such file or directory"
 **Solution**: Ensure `prisma/` folder exists

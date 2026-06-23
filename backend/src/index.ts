@@ -4,9 +4,9 @@
 
 import http from 'http';
 import { createApp } from '@/app.js';
-import { connectDB, disconnectDB, isDBConnected } from '@/config/database.js';
+import { connectDB, disconnectDB } from '@/config/database.js';
 import { gpioService } from '@/services/gpioService.js';
-import { config, isDevelopment } from '@/config/env.js';
+import { config } from '@/config/env.js';
 import logger from '@/utils/logger.js';
 
 /**

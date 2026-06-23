@@ -1,7 +1,7 @@
 {
   "name": "napkin-store-backend",
   "version": "2.0.0",
-  "description": "Napkin Store Backend - Express + MongoDB with GPIO Control",
+  "description": "Napkin Store Backend - Express + SQLite + Prisma with GPIO Control",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -19,7 +19,8 @@
     "store",
     "gpio",
     "rest-api",
-    "mongodb",
+    "sqlite",
+    "prisma",
     "express",
     "typescript"
   ],

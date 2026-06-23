@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -23,6 +23,8 @@ import { SignupBadgeDialogComponent } from './signup-badge-dialog.component';
   imports: [CommonModule, FormsModule, MatDialogModule, MatButtonModule, NgxSpinnerModule, RouterLink],
 })
 export class SignupComponent implements OnInit {
+  @ViewChild('badgeNumber', { static: false }) myInputField!: ElementRef;
+
   badgeNum: number | undefined;
   badgeId = '';
   message = '';
@@ -47,7 +49,8 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private stockService: StockService,
-    private gpioService: GpioService
+    private gpioService: GpioService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -107,6 +110,7 @@ export class SignupComponent implements OnInit {
         const foundUser = json.find((obj: any) => obj['N.badge'] == this.badgeNum);
 
         this.loading = false;
+        this.cdr.detectChanges();
 
         if (foundUser) {
           this.user = {
@@ -158,6 +162,7 @@ export class SignupComponent implements OnInit {
       } catch (error) {
         console.error('Error reading Excel file:', error);
         this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
@@ -204,6 +209,10 @@ export class SignupComponent implements OnInit {
       badgeNum: 0,
       mat: '',
     };
+  }
+
+  ngAfterViewInit() {
+    this.myInputField.nativeElement.focus();
   }
 }
 

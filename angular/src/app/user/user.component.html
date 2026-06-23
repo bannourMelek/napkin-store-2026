@@ -1,53 +1,48 @@
-<section class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-    <div class="w-full max-w-md">
-        <div class="text-center mb-8">
-            <img src="assets/drx.png" alt="Logo" class="w-32 h-auto mx-auto mb-4">
-        </div>
+<div class="min-h-screen gradient-custom from-slate-900 via-slate-800 to-slate-900 flex flex-col p-4">
+    <!-- Logo section - full width -->
+    <div class="w-full mb-8">
+        <img src="assets/drx.png" alt="Logo" class="w-32 h-auto">
+    </div>
 
-        <div class="bg-slate-800 rounded-lg shadow-2xl overflow-hidden border border-slate-700">
+    <!-- Card section - centered vertically and horizontally -->
+    <div class="flex-1 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-slate-700 w-[70vw]">
             <div class="p-8 text-center">
-                <div class="mb-8">
-                    <p class="text-white mb-4 text-lg">Bonjour <span class="font-bold">{{user.name}}</span></p>
-                    
-                    <!-- Stock availability messages -->
-                    <p class="text-blue-400 text-base mb-4" *ngIf="stock.stockA>0 && stock.stockB>0">Veuillez Choisir entre A ou B</p>
-                    <p class="text-yellow-400 text-base mb-4" *ngIf="stock.stockA>0 && stock.stockB==0">Veuillez choisir le choix A</p>
-                    <p class="text-yellow-400 text-base mb-4" *ngIf="stock.stockA==0 && stock.stockB>0">Veuillez choisir le choix B</p>
-                    <p class="text-red-400 text-base mb-4" *ngIf="stock.stockA==0 && stock.stockB==0">Les deux reservoirs sont Vides</p>
+                <p class="text-cyan-700 mb-4 text-lg">Bonjour <span class="font-bold">{{user.name}}</span></p>
 
-                    <!-- User balance messages -->
-                    <p class="text-green-400 text-base font-bold mb-2" *ngIf="user.stock>0">Solde Suffisant</p>
-                    <p class="text-red-400 text-base font-bold mb-2" *ngIf="user.stock==0">Solde insuffisant</p>
-                    <p class="text-white text-base">Stock Restant: <span class="font-bold">{{user.stock}}</span></p>
-                </div>
+                <!-- Stock availability messages -->
+                <p class="text-blue-400 text-base mb-4" *ngIf="stock.stockA>0 && stock.stockB>0">Veuillez Choisir
+                    entre A ou B</p>
+                <p class="text-yellow-400 text-base mb-4" *ngIf="stock.stockA>0 && stock.stockB==0">Veuillez choisir
+                    le choix A</p>
+                <p class="text-yellow-400 text-base mb-4" *ngIf="stock.stockA==0 && stock.stockB>0">Veuillez choisir
+                    le choix B</p>
+                <p class="text-red-400 text-base mb-4" *ngIf="stock.stockA==0 && stock.stockB==0">Les deux
+                    reservoirs sont Vides</p>
 
-                <!-- Action buttons -->
-                <div class="flex gap-6 justify-between mt-8">
-                    <button 
-                        type="button" 
-                        mat-raised-button
-                        (click)="updateUser('stockB')"
-                        class="flex-1">
-                        B
-                    </button>
-                    <button 
-                        type="button" 
-                        mat-raised-button
-                        color="primary"
-                        (click)="updateUser('stockA')"
-                        class="flex-1">
-                        A
-                    </button>
-                </div>
+                <!-- User balance messages -->
+                <p class="text-green-400 text-base font-bold mb-2" *ngIf="user.stock>0">Solde Suffisant</p>
+                <p class="text-red-400 text-base font-bold mb-2" *ngIf="user.stock==0">Solde insuffisant</p>
+                <p class="text-base">Stock Restant: <span class="font-bold">{{user.stock}}</span></p>
             </div>
-        </div>
 
-        <!-- Stock Info Footer -->
-        <div class="fixed bottom-0 left-0 right-0 bg-slate-800 border-t border-slate-700 text-white p-4 rounded-t-lg">
-            <div class="flex justify-between items-center max-w-md mx-auto">
-                <div>A : {{stock.stockA}}</div>
-                <div>B : {{stock.stockB}}</div>
+            <!-- Action buttons -->
+            <div class="flex justify-between gap-4 m-8">
+                <button mat-raised-button color="primary" (click)="updateUser('stockB')" class="flex-1">
+                    B
+                </button>
+                <button mat-raised-button color="primary" (click)="updateUser('stockA')" class="flex-1">
+                    A
+                </button>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- Stock Info Footer -->
+    <div class="fixed bottom-0 left-0 right-0 bg-slate-800 border-t border-slate-700 text-white p-4 rounded-t-lg">
+        <div class="flex justify-between items-center max-w-md mx-auto">
+            <div>A : {{stock.stockA}}</div>
+            <div>B : {{stock.stockB}}</div>
+        </div>
+    </div>
+</div>

@@ -16,9 +16,9 @@ async function startServer(): Promise<void> {
   try {
     logger.info('🚀 Starting Napkin Store Backend...');
     logger.info(`📝 Environment: ${config.NODE_ENV}`);
-    logger.info(`📊 Database: ${config.MONGODB_URI}`);
+    logger.info(`📊 Database: SQLite`);
 
-    // Connect to MongoDB
+    // Connect to SQLite
     await connectDB();
 
     // Initialize GPIO

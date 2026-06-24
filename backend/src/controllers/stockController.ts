@@ -1,25 +1,26 @@
 /**
  * Stock Controller
- * Updated to use Prisma
+ * Updated to use NeDB
  */
 
 import { Request, Response } from 'express';
-import { prisma } from '@/models/index.js';
+import { getStockDB } from '@/config/database.js';
 import { asyncHandler } from '@/middleware/errorHandler.js';
 import { AppError } from '@/types/index.js';
 import type { IStockDTO } from '@/types/index.js';
 import logger from '@/utils/logger.js';
+import { findOne, find, findWithSort, insert, update, remove, findWithLimit, generateId } from '@/utils/nedb-helper.js';
+import type { Stock } from '@/models/index.js';
 
 /**
  * Get all stock - matches Flask endpoint GET /stock
  * Returns first two stock items as { stock: { stockA, stockB } }
  */
 export const getAllStock = asyncHandler(async (req: Request, res: Response) => {
-  // Get first two items ordered by name
-  const items = await prisma.stock.findMany({
-    orderBy: { itemName: 'asc' },
-    take: 2,
-  });
+  const db = getStockDB();
+  
+  // Get first two items ordered by itemName
+  const items = await findWithSort(db, {}, 'itemName', 1);
 
   // Map to stockA/stockB format matching Flask response
   const stock = {
@@ -38,10 +39,9 @@ export const getAllStock = asyncHandler(async (req: Request, res: Response) => {
  */
 export const getStockById = asyncHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
+  const db = getStockDB();
 
-  const item = await prisma.stock.findUnique({
-    where: { id },
-  });
+  const item = await findOne(db, { _id: id });
 
   if (!item) {
     throw new AppError(404, 'Stock item not found');
@@ -64,14 +64,17 @@ export const searchStock = asyncHandler(async (req: Request, res: Response) => {
     throw new AppError(400, 'Search query is required');
   }
 
-  const results = await prisma.stock.findMany({
-    where: {
-      OR: [
-        { itemName: { contains: q as string } },
-        { description: { contains: q as string } },
-        { sku: { contains: q as string } },
-      ],
-    },
+  const db = getStockDB();
+  const searchTerm = (q as string).toLowerCase();
+
+  // NeDB simple search across multiple fields
+  const allItems = await find(db, {});
+  const results = allItems.filter((item: Stock) => {
+    return (
+      (item.itemName && item.itemName.toLowerCase().includes(searchTerm)) ||
+      (item.description && item.description.toLowerCase().includes(searchTerm)) ||
+      (item.sku && item.sku.toLowerCase().includes(searchTerm))
+    );
   });
 
   res.json({
@@ -94,63 +97,62 @@ export const createStock = asyncHandler(async (req: Request, res: Response) => {
     throw new AppError(400, 'stockA and stockB are required');
   }
 
+  const db = getStockDB();
+
   // Get or create first two stock items
-  let items = await prisma.stock.findMany({
-    orderBy: { itemName: 'asc' },
-    take: 2,
-  });
+  let items = await findWithSort(db, {}, 'itemName', 1);
 
   // If less than 2 items exist, create them
   if (items.length === 0) {
-    const item1 = await prisma.stock.create({
-      data: {
-        itemName: 'Stock Item A',
-        sku: 'STOCK-A',
-        quantity: stockA,
-        reorderLevel: 10,
-        unit: 'pack',
-        category: 'General',
-        lastRestocked: new Date(),
-      },
-    });
+    const item1: Stock = {
+      _id: generateId(),
+      itemName: 'Stock Item A',
+      sku: 'STOCK-A',
+      quantity: stockA,
+      reorderLevel: 10,
+      unit: 'pack',
+      category: 'General',
+      lastRestocked: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
 
-    const item2 = await prisma.stock.create({
-      data: {
-        itemName: 'Stock Item B',
-        sku: 'STOCK-B',
-        quantity: stockB,
-        reorderLevel: 10,
-        unit: 'pack',
-        category: 'General',
-        lastRestocked: new Date(),
-      },
-    });
+    const item2: Stock = {
+      _id: generateId(),
+      itemName: 'Stock Item B',
+      sku: 'STOCK-B',
+      quantity: stockB,
+      reorderLevel: 10,
+      unit: 'pack',
+      category: 'General',
+      lastRestocked: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
 
+    await insert(db, item1);
+    await insert(db, item2);
     items = [item1, item2];
   } else if (items.length === 1) {
-    const item2 = await prisma.stock.create({
-      data: {
-        itemName: 'Stock Item B',
-        sku: 'STOCK-B',
-        quantity: stockB,
-        reorderLevel: 10,
-        unit: 'pack',
-        category: 'General',
-        lastRestocked: new Date(),
-      },
-    });
+    const item2: Stock = {
+      _id: generateId(),
+      itemName: 'Stock Item B',
+      sku: 'STOCK-B',
+      quantity: stockB,
+      reorderLevel: 10,
+      unit: 'pack',
+      category: 'General',
+      lastRestocked: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    await insert(db, item2);
     items.push(item2);
   } else {
     // Update existing items
     await Promise.all([
-      prisma.stock.update({
-        where: { id: items[0].id },
-        data: { quantity: stockA, updatedAt: new Date() },
-      }),
-      prisma.stock.update({
-        where: { id: items[1].id },
-        data: { quantity: stockB, updatedAt: new Date() },
-      }),
+      update(db, { _id: items[0]._id }, { $set: { quantity: stockA, updatedAt: new Date() } }),
+      update(db, { _id: items[1]._id }, { $set: { quantity: stockB, updatedAt: new Date() } }),
     ]);
   }
 
@@ -172,11 +174,10 @@ export const updateStock = asyncHandler(async (req: Request, res: Response) => {
     throw new AppError(400, 'stockA and stockB are required');
   }
 
+  const db = getStockDB();
+
   // Get all stock items ordered by name to ensure consistency
-  const items = await prisma.stock.findMany({
-    orderBy: { itemName: 'asc' },
-    take: 2,
-  });
+  const items = await findWithSort(db, {}, 'itemName', 1);
 
   if (items.length < 2) {
     throw new AppError(400, 'At least 2 stock items required for stockA and stockB');
@@ -184,21 +185,12 @@ export const updateStock = asyncHandler(async (req: Request, res: Response) => {
 
   // Update first two items
   await Promise.all([
-    prisma.stock.update({
-      where: { id: items[0].id },
-      data: { quantity: stockA, updatedAt: new Date() },
-    }),
-    prisma.stock.update({
-      where: { id: items[1].id },
-      data: { quantity: stockB, updatedAt: new Date() },
-    }),
+    update(db, { _id: items[0]._id }, { $set: { quantity: stockA, updatedAt: new Date() } }),
+    update(db, { _id: items[1]._id }, { $set: { quantity: stockB, updatedAt: new Date() } }),
   ]);
 
   // Return updated stock
-  const updatedItems = await prisma.stock.findMany({
-    orderBy: { itemName: 'asc' },
-    take: 2,
-  });
+  const updatedItems = await findWithSort(db, {}, 'itemName', 1);
 
   const stock = {
     stockA: updatedItems[0]?.quantity || 0,
@@ -222,8 +214,10 @@ export const updateStockQuantity = asyncHandler(async (req: Request, res: Respon
     throw new AppError(400, 'Quantity is required');
   }
 
+  const db = getStockDB();
+
   // Get current stock
-  const current = await prisma.stock.findUnique({ where: { id } });
+  const current = await findOne(db, { _id: id });
   if (!current) {
     throw new AppError(404, 'Stock item not found');
   }
@@ -238,13 +232,10 @@ export const updateStockQuantity = asyncHandler(async (req: Request, res: Respon
     newQuantity = quantity;
   }
 
-  const item = await prisma.stock.update({
-    where: { id },
-    data: {
-      quantity: newQuantity,
-      updatedAt: new Date(),
-    },
-  });
+  await update(db, { _id: id }, { $set: { quantity: newQuantity, updatedAt: new Date() } });
+
+  // Fetch and return updated item
+  const item = await findOne(db, { _id: id });
 
   res.json({
     success: true,
@@ -259,12 +250,11 @@ export const updateStockQuantity = asyncHandler(async (req: Request, res: Respon
  */
 export const deleteStock = asyncHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
+  const db = getStockDB();
 
-  const item = await prisma.stock.delete({
-    where: { id },
-  });
+  const numRemoved = await remove(db, { _id: id });
 
-  if (!item) {
+  if (numRemoved === 0) {
     throw new AppError(404, 'Stock item not found');
   }
 
@@ -279,12 +269,11 @@ export const deleteStock = asyncHandler(async (req: Request, res: Response) => {
  * Get low stock items
  */
 export const getLowStock = asyncHandler(async (req: Request, res: Response) => {
-  const items = await prisma.stock.findMany({
-    orderBy: { quantity: 'asc' },
-  });
+  const db = getStockDB();
+  const items = await findWithSort(db, {}, 'quantity', 1);
 
   // Filter items where quantity <= reorderLevel
-  const lowStockItems = items.filter((item: any) => item.quantity <= item.reorderLevel);
+  const lowStockItems = items.filter((item: Stock) => item.quantity !== undefined && item.reorderLevel !== undefined && item.quantity <= item.reorderLevel);
 
   res.json({
     success: true,

@@ -4,11 +4,13 @@
  */
 
 import { Request, Response } from 'express';
-import { prisma } from '@/models/index.js';
+import { getAdminsDB } from '@/config/database.js';
 import { asyncHandler } from '@/middleware/errorHandler.js';
 import { AppError } from '@/types/index.js';
 import type { IAdminDTO } from '@/types/index.js';
 import logger from '@/utils/logger.js';
+import { findOne, find, insert, update, remove, findWithLimit, generateId } from '@/utils/nedb-helper.js';
+import type { Admin } from '@/models/index.js';
 
 /**
  * Get admin by badgeId (signin)
@@ -21,9 +23,8 @@ export const getAdminByBadge = asyncHandler(async (req: Request, res: Response) 
     throw new AppError(400, 'badge_id is required');
   }
 
-  const admin = await prisma.admin.findUnique({
-    where: { badgeId: badge_id as string },
-  });
+  const db = getAdminsDB();
+  const admin = await findOne(db, { badgeId: badge_id as string });
 
   if (!admin) {
     throw new AppError(404, 'Admin not found');
@@ -46,30 +47,34 @@ export const createAdmin = asyncHandler(async (req: Request, res: Response) => {
     throw new AppError(400, 'mat, name, jobName, badgeNum, and badgeId are required');
   }
 
+  const db = getAdminsDB();
+
   // Check if admin already exists
-  const existingAdmin = await prisma.admin.findFirst({
-    where: {
-      OR: [{ mat }, { badgeId }],
-    },
+  const existingAdmin = await findOne(db, {
+    $or: [{ mat }, { badgeId }],
   });
 
   if (existingAdmin) {
     throw new AppError(409, 'Admin with this mat or badgeId already exists');
   }
 
-  const admin = await prisma.admin.create({
-    data: {
-      mat,
-      name,
-      org,
-      jobName,
-      badgeNum,
-      badgeId,
-    },
-  });
+  const newAdmin: Admin = {
+    _id: generateId(),
+    mat,
+    name,
+    org,
+    jobName,
+    badgeNum,
+    badgeId,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  const admin = await insert(db, newAdmin);
 
   res.status(201).json({
     message: 'success new admin',
+    admin: admin,
   });
 });
 
@@ -84,10 +89,16 @@ export const updateAdmin = asyncHandler(async (req: Request, res: Response) => {
     throw new AppError(400, 'Admin ID is required in request body');
   }
 
-  const admin = await prisma.admin.update({
-    where: { id },
-    data: updates,
-  });
+  const db = getAdminsDB();
+
+  // Add updatedAt timestamp
+  updates.updatedAt = new Date();
+
+  const numUpdated = await update(db, { _id: id }, { $set: updates }, { returnUpdatedDocs: true });
+
+  if (numUpdated === 0) {
+    throw new AppError(404, 'Admin not found');
+  }
 
   res.json({
     message: 'success update admin',
@@ -100,11 +111,10 @@ export const updateAdmin = asyncHandler(async (req: Request, res: Response) => {
 export const deleteAdmin = asyncHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
 
-  const admin = await prisma.admin.delete({
-    where: { id },
-  });
+  const db = getAdminsDB();
+  const numRemoved = await remove(db, { _id: id });
 
-  if (!admin) {
+  if (numRemoved === 0) {
     throw new AppError(404, 'Admin not found');
   }
 
@@ -121,9 +131,8 @@ export const deleteAdmin = asyncHandler(async (req: Request, res: Response) => {
 export const getAllAdmins = asyncHandler(async (req: Request, res: Response) => {
   const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : 100;
 
-  const admins = await prisma.admin.findMany({
-    take: limit,
-  });
+  const db = getAdminsDB();
+  const admins = await findWithLimit(db, {}, limit);
 
   res.json({
     success: true,

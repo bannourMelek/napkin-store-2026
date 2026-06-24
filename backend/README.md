@@ -1,6 +1,6 @@
 # Napkin Store Backend
 
-Express.js REST API with SQLite + Prisma ORM, GPIO control, JWT authentication, and role-based access control.
+Express.js REST API with NeDB embedded database, GPIO control, JWT authentication, and role-based access control.
 
 ## 🚀 Quick Start
 
@@ -15,9 +15,6 @@ cd backend
 
 # Install dependencies
 npm install
-
-# Install SQLite adapter
-npm install @prisma/adapter-sqlite better-sqlite3
 ```
 
 ### Environment Setup
@@ -26,7 +23,7 @@ Create a `.env` file in the `backend/` directory:
 
 ```env
 # Database
-DATABASE_URL="file:./prisma/dev.db"
+NEDB_PATH=./data
 
 # Server
 NODE_ENV=development
@@ -41,16 +38,16 @@ LOG_LEVEL=info
 
 ### Database Setup
 
-```bash
-# Push schema to SQLite database
-npx prisma db push
+The database will be automatically initialized on first run. Data is stored in the `./data` directory:
 
-# (Optional) Seed sample data
-npm run db:seed
-
-# (Optional) Open Prisma Studio to view/edit data visually
-npx prisma studio
 ```
+/data
+├── users.db
+├── admins.db
+├── stock.db
+└── gpio-logs.db
+```
+
 
 ### Run Development Server
 
@@ -64,12 +61,14 @@ Server will start at `http://localhost:3000`
 
 ```
 backend/
-├── prisma/
-│   ├── schema.prisma       # Database schema
-│   └── dev.db             # SQLite database file (git-ignored)
+├── data/
+│   ├── users.db           # NeDB User database (git-ignored)
+│   ├── admins.db          # NeDB Admin database (git-ignored)
+│   ├── stock.db           # NeDB Stock database (git-ignored)
+│   └── gpio-logs.db       # NeDB GPIO logs database (git-ignored)
 ├── src/
 │   ├── config/
-│   │   ├── database.ts     # Prisma client initialization
+│   │   ├── database.ts     # NeDB database initialization
 │   │   └── env.ts          # Environment variable validation
 │   ├── controllers/        # Route handlers
 │   │   ├── userController.ts
@@ -84,10 +83,10 @@ backend/
 │   │   └── gpioService.ts
 │   ├── types/              # TypeScript type definitions
 │   ├── utils/
-│   │   └── logger.ts       # Winston logging
+│   │   ├── logger.ts       # Winston logging
+│   │   └── nedb-helper.ts  # NeDB helper functions
 │   ├── app.ts              # Express app setup
 │   └── index.ts            # Server entry point
-├── prisma.config.ts        # Prisma configuration with database adapter
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -102,17 +101,16 @@ backend/
 | `npm start` | Run production build |
 | `npm run db:init` | Initialize database |
 | `npm run db:seed` | Seed sample data |
-| `npx prisma db push` | Sync schema with database |
-| `npx prisma migrate dev --name <name>` | Create new migration |
-| `npx prisma studio` | Open visual database UI |
 | `npm run lint` | Run ESLint |
 | `npm run format` | Format code with Prettier |
 | `npm test` | Run tests with Vitest |
 
 ## 🗄️ Database Models
 
+All models use NeDB with the following structure. Each model has an `_id` field as the primary key (auto-generated CUID).
+
 ### User
-- `id` (CUID) - Primary key
+- `_id` (String) - Primary key (auto-generated)
 - `mat` (String, unique) - Employee ID
 - `name` (String) - Full name
 - `org` (String?) - Organization
@@ -131,7 +129,7 @@ backend/
 **Indexes**: `mat`, `badgeId`, `org`, `department`
 
 ### Admin
-- `id` (CUID) - Primary key
+- `_id` (String) - Primary key (auto-generated)
 - `mat` (String, unique) - Employee ID
 - `name` (String) - Admin name
 - `org` (String?) - Organization
@@ -143,7 +141,7 @@ backend/
 **Indexes**: `mat`, `badgeId`, `org`
 
 ### Stock
-- `id` (CUID) - Primary key
+- `_id` (String) - Primary key (auto-generated)
 - `itemName` (String) - Item name
 - `description` (String?) - Description
 - `sku` (String, unique) - Stock keeping unit

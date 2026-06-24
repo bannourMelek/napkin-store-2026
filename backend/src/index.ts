@@ -16,7 +16,7 @@ async function startServer(): Promise<void> {
   try {
     logger.info('🚀 Starting Napkin Store Backend...');
     logger.info(`📝 Environment: ${config.NODE_ENV}`);
-    logger.info(`📊 Database: SQLite`);
+    logger.info(`📊 Database: NeDB`);
 
     // Connect to SQLite
     await connectDB();

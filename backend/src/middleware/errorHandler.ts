@@ -32,7 +32,7 @@ export function errorHandler(
     return;
   }
 
-  // Prisma/SQLite errors are handled by AppError above
+  // NeDB errors are handled by AppError above
 
   // Default error
   res.status(500).json({

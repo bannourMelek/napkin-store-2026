@@ -12,9 +12,8 @@ npm-debug.log
 yarn-error.log
 
 # Database
-/prisma/*.db
-/prisma/*.db-shm
-/prisma/*.db-wal
+/data
+/data/
 
 # IDEs and editors
 .idea/

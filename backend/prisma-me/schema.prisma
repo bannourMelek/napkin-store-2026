@@ -31,6 +31,7 @@ model User {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
+
   @@index([mat])
   @@index([badgeId])
   @@index([org])
@@ -63,6 +64,8 @@ model Admin {
 
 model Stock {
   id        String   @id @default(cuid())
+  itemName  String
+  description String?
   sku       String   @unique
   quantity  Int      @default(0)
   reorderLevel Int   @default(20)
@@ -83,6 +86,7 @@ model Stock {
   @@index([category])
   @@index([quantity])
   @@index([location])
+  @@fulltext([itemName, description])
 }
 
 // ============================================================================

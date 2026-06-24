@@ -14,3 +14,12 @@
 // Prisma configuration for SQLite with better-sqlite3
 // DATABASE_URL is read from .env file
 // No additional configuration needed for SQLite with Prisma v7+
+
+export default{
+  schema: "prisma/schema.prisma",
+  datasource: {
+    url: 'file:./prisma/dev.db',
+  },
+};
+
+

@@ -18,7 +18,7 @@ import type { User } from '@/models/index.js';
  */
 export const getUserByBadge = asyncHandler(async (req: Request, res: Response) => {
   const { badge_id } = req.query;
-
+  console.log(badge_id)
   if (!badge_id) {
     throw new AppError(400, 'badge_id is required');
   }

@@ -11,10 +11,6 @@
 npm-debug.log
 yarn-error.log
 
-# Database
-/data
-/data/
-
 # IDEs and editors
 .idea/
 .project

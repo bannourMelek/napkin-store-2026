@@ -1,0 +1,3 @@
+{"$$indexCreated":{"fieldName":"createdAt","unique":false,"sparse":false}}
+{"$$indexCreated":{"fieldName":"channel","unique":false,"sparse":false}}
+{"$$indexCreated":{"fieldName":"deviceId","unique":false,"sparse":false}}

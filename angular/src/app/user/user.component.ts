@@ -44,30 +44,12 @@ export class UserComponent implements AfterViewChecked, OnInit {
     this.user = JSON.parse(user);
     console.log(this.user);
     
-    // Fallback dummy data if user data is not available
-    if (!this.user || !this.user.name) {
-      this.user = {
-        mat: 'EMP001',
-        name: 'John Doe',
-        org: 'Sales Department',
-        direct: 'Alice Johnson',
-        costCenter: 1001,
-        birthday: '1985-03-15',
-        schoolLevel: 'Bachelor',
-        department: 'Sales',
-        jobName: 'Sales Manager',
-        badgeNum: 1001,
-        superior: 'Bob Wilson',
-        stock: 5,
-        badgeId: 'BADGE-001',
-      };
-    }
 
     setTimeout(() => {
       if (!this.functionFired) {
         this.router.navigate(['/signin']);
       }
-    }, 20000);
+    }, 30000);
   }
 
   ngOnInit(): void {

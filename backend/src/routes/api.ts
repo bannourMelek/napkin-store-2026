@@ -29,7 +29,6 @@ router.put('/admin', adminController.updateAdmin);       // PUT /admin
 // Stock Routes
 // ============================================================================
 router.get('/stock', stockController.getAllStock);       // GET /stock
-router.post('/stock', stockController.createStock);      // POST /stock
 router.put('/stock', stockController.updateStock);       // PUT /stock
 
 // ============================================================================

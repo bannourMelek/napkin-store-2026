@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -41,7 +41,9 @@ export class SigninComponent implements OnInit, AfterViewInit {
     private stockService: StockService,
     private adminService: AdminService,
     private dialog: MatDialog,
-    private gpioService: GpioService
+    private gpioService: GpioService,
+        private readonly changeDetectorRef: ChangeDetectorRef,
+
   ) { }
 
   ngOnInit(): void {
@@ -64,7 +66,9 @@ export class SigninComponent implements OnInit, AfterViewInit {
     );
     this.stockService.getStock().subscribe(
       (data) => {
+        console.log(data)
         this.stock = data.stock;
+        this.changeDetectorRef.detectChanges()
       },
       (err) => {
         console.log(err);
@@ -72,62 +76,64 @@ export class SigninComponent implements OnInit, AfterViewInit {
     );
   }
 
+  //:3,1064986999,77697A3F;3,1064986999,77697A3F
   onKey(event: any) {
-    console.log(event.target.value);
-    this.loading = true;
+    if (event.target.value.length > 43){
+      this.loading = true;
+      setTimeout(() => {
+        this.userService.signin(event.target.value).subscribe(
+          (data) => {
+            console.log(data);
+            this.user = data.user;
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
 
-    setTimeout(() => {
-      this.userService.signin(event.target.value).subscribe(
-        (data) => {
-          console.log(data);
-          this.user = data.user;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+        this.adminService.signin(event.target.value).subscribe(
+          (data) => {
+            console.log(data);
+            this.admin = data.admin;
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      }, 1000);
 
-      this.adminService.signin(event.target.value).subscribe(
-        (data) => {
-          console.log(data);
-          this.admin = data.admin;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }, 1000);
+      setTimeout(() => {
+        this.loading = false;
 
-    setTimeout(() => {
-      this.loading = false;
+        if (this.user) {
+          if (this.admin) {
+            const dialogRef = this.dialog.open(SigninChoiceDialogComponent, {
+              width: '400px',
+              disableClose: true,
+              data: { user: this.user, admin: this.admin }
+            });
 
-      if (this.user) {
-        if (this.admin) {
-          const dialogRef = this.dialog.open(SigninChoiceDialogComponent, {
-            width: '400px',
-            disableClose: true,
-            data: { user: this.user, admin: this.admin }
-          });
-
-          dialogRef.afterClosed().subscribe((result) => {
-            if (result === 'user') {
-              this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
-            } else if (result === 'admin') {
-              this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
-            }
-          });
+            dialogRef.afterClosed().subscribe((result) => {
+              if (result === 'user') {
+                this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
+              } else if (result === 'admin') {
+                this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
+              }
+            });
+          } else {
+            this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
+          }
         } else {
-          this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
+          if (this.admin) {
+            this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
+          } else {
+            this.message = 'aucun Utilisateur/Administrateur trouvé!';
+            this.badgeId = '';
+          }
         }
-      } else {
-        if (this.admin) {
-          this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
-        } else {
-          this.message = 'aucun Utilisateur/Administrateur trouvé!';
-          this.badgeId = '';
-        }
-      }
-    }, 2000);
+      }, 1000);
+    }
+   
   }
 
   ngAfterViewInit() {

@@ -1,0 +1,5 @@
+{"$$indexCreated":{"fieldName":"mat","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"badgeId","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"org","unique":false,"sparse":false}}
+{"$$indexCreated":{"fieldName":"department","unique":false,"sparse":false}}
+{"_id":"c37hwumbwxjhug1dby3","mat":4049360,"name":"Malek Bannour","org":"I-AF1","direct":"Indirect","costCenter":5814091441,"birthday":"1993-04-25T00:00:00.000Z","schoolLevel":"BAC + 5","department":"Service Informatique","jobName":"Spécialist IT Cloud Software Designer","badgeNum":4160308,"superior":"Boughattas Mohamed Bader","stock":5,"badgeId":":3,1064986999,77697A3F;3,1064986999,77697A3F","createdAt":{"$$date":1782393321117},"updatedAt":{"$$date":1782393321117}}

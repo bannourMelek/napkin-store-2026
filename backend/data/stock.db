@@ -1,0 +1,5 @@
+{"stockA":100,"stockB":100,"_id":"VrqYWdD9cPunDe6g"}
+{"$$indexCreated":{"fieldName":"sku","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"category","unique":false,"sparse":false}}
+{"$$indexCreated":{"fieldName":"quantity","unique":false,"sparse":false}}
+{"$$indexCreated":{"fieldName":"location","unique":false,"sparse":false}}

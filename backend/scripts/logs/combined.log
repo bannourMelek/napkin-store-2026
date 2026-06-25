@@ -1,0 +1,24 @@
+[36m2026-06-25 10:53:02 [INFO][0m ✅ Connected to NeDB successfully! 
+[36m2026-06-25 10:53:02 [INFO][0m 📝 Adding 1 stock item(s)... 
+[36m2026-06-25 10:53:02 [INFO][0m ✅ Added stock item: 100 (100) 
+[36m2026-06-25 10:53:02 [INFO][0m 
+📊 All stock items in database: 
+[36m2026-06-25 10:53:02 [INFO][0m   • undefined - undefined (Qty: undefined, Price: $0) 
+[36m2026-06-25 10:53:02 [INFO][0m 
+📊 Stock Summary: 
+[36m2026-06-25 10:53:02 [INFO][0m    Total Items: 1 
+[36m2026-06-25 10:53:02 [INFO][0m    Total Value: $0.00 
+[36m2026-06-25 10:53:02 [INFO][0m 
+✅ Stock setup complete! 
+[36m2026-06-25 10:53:42 [INFO][0m ✅ Connected to NeDB successfully! 
+[36m2026-06-25 10:53:42 [INFO][0m 📝 Adding 1 admin(s)... 
+[36m2026-06-25 10:53:42 [INFO][0m ✅ Admin created: 4049360 (Malek Bannour) 
+[36m2026-06-25 10:53:42 [INFO][0m    ID: cpzf8brzd4vpoowsl45 
+[36m2026-06-25 10:53:42 [INFO][0m    Job: specialist IT 
+[36m2026-06-25 10:53:42 [INFO][0m    Badge: >11,4254462,4E0040EAFE<11,4254462,4E0040EAFE 
+[36m2026-06-25 10:53:42 [INFO][0m    Org: IT 
+[36m2026-06-25 10:53:42 [INFO][0m 
+📊 All admins in database: 
+[36m2026-06-25 10:53:42 [INFO][0m   • 4049360 - Malek Bannour (specialist IT) 
+[36m2026-06-25 10:53:42 [INFO][0m 
+✅ Admin setup complete! Total admins: 1 

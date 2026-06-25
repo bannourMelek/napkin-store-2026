@@ -43,6 +43,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.stockService.getStock().subscribe(
       (data) => {
         this.stock = data.stock;
+        this.changeDetectorRef.detectChanges();
       },
       (err) => {
         console.log(err);

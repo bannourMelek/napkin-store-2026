@@ -43,7 +43,7 @@ export class UserComponent implements AfterViewChecked, OnInit {
     let user: any = this.route.snapshot.paramMap.get('user');
     this.user = JSON.parse(user);
     console.log(this.user);
-    
+
 
     setTimeout(() => {
       if (!this.functionFired) {
@@ -56,6 +56,7 @@ export class UserComponent implements AfterViewChecked, OnInit {
     this.stockService.getStock().subscribe(
       (data) => {
         this.stock = data.stock;
+        this.changeDetectorRef.detectChanges();
         if (this.user.stock > 0) {
           if (this.stock.stockA > 0) {
             this.gpioService.enableButton(5).subscribe(

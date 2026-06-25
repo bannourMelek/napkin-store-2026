@@ -90,10 +90,10 @@ export const createUser = asyncHandler(async (req: Request, res: Response) => {
  * Frontend: PUT /user (with id in body)
  */
 export const updateUser = asyncHandler(async (req: Request, res: Response) => {
-  const { id, ...updates } = req.body;
+  const { mat, ...updates } = req.body;
 
-  if (!id) {
-    throw new AppError(400, 'User ID is required in request body');
+  if (!mat) {
+    throw new AppError(400, 'User mat is required in request body');
   }
 
   const db = getUsersDB();
@@ -101,14 +101,14 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
   // Add updatedAt timestamp
   updates.updatedAt = new Date();
 
-  const numUpdated = await update(db, { _id: id }, { $set: updates }, { returnUpdatedDocs: true });
+  const numUpdated = await update(db, { mat }, { $set: updates }, { returnUpdatedDocs: true });
 
   if (numUpdated === 0) {
     throw new AppError(404, 'User not found');
   }
 
   // Fetch and return updated user
-  const user = await findOne(db, { _id: id });
+  const user = await findOne(db, { mat });
 
   res.json({
     message: 'success put',

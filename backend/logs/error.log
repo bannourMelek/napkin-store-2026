@@ -1,0 +1,288 @@
+[31m2026-06-25 16:12:19 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:12:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:12:19 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:12:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:12:19 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:12:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:13:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:14:03 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:15:20 [ERROR][0m User with this mat or badgeId already exists {
+  "stack": "Error: User with this mat or badgeId already exists\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:58:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "isOperational": true
+}
+[31m2026-06-25 16:20:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:20:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:20:19 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:28:42 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:31:38 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:33:09 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:34:54 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:35:08 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:39:43 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:41:52 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:41:52 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:41:52 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:42:23 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:42:23 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:42:23 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:42:34 [ERROR][0m User ID is required in request body {
+  "stack": "Error: User ID is required in request body\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:96:11)\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\middleware\\errorHandler.ts:66:21)\n    at Layer.handleRequest (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\router\\index.js:291:5)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:22 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:32 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:32 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:32 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:39 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:39 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[31m2026-06-25 16:47:39 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}

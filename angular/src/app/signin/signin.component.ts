@@ -12,6 +12,8 @@ import { GpioService } from '../services/gpio.service';
 import { GPIO_CONFIG } from '../config/gpio.config';
 import { Stock } from '../entities/stock';
 import { SigninChoiceDialogComponent } from './signin-choice-dialog.component';
+import { forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin',
@@ -78,62 +80,82 @@ export class SigninComponent implements OnInit, AfterViewInit {
 
   //:3,1064986999,77697A3F;3,1064986999,77697A3F
   onKey(event: any) {
-    if (event.target.value.length > 43){
-      this.loading = true;
-      setTimeout(() => {
-        this.userService.signin(event.target.value).subscribe(
-          (data) => {
-            console.log(data);
-            this.user = data.user;
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
-
-        this.adminService.signin(event.target.value).subscribe(
-          (data) => {
-            console.log(data);
-            this.admin = data.admin;
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
-      }, 1000);
-
-      setTimeout(() => {
-        this.loading = false;
-
-        if (this.user) {
-          if (this.admin) {
-            const dialogRef = this.dialog.open(SigninChoiceDialogComponent, {
-              width: '400px',
-              disableClose: true,
-              data: { user: this.user, admin: this.admin }
-            });
-
-            dialogRef.afterClosed().subscribe((result) => {
-              if (result === 'user') {
-                this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
-              } else if (result === 'admin') {
-                this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
-              }
-            });
-          } else {
-            this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
-          }
-        } else {
-          if (this.admin) {
-            this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
-          } else {
-            this.message = 'aucun Utilisateur/Administrateur trouvé!';
-            this.badgeId = '';
-          }
-        }
-      }, 1000);
+    // Prevent multiple signin attempts while one is already in progress
+    if (this.loading) {
+      return;
     }
-   
+
+    if (event.target.value.length > 43) {
+      this.loading = true;
+      const badgeValue = event.target.value;
+
+      // Run both signin requests in parallel and wait for both to complete
+      forkJoin({
+        userResponse: this.userService.signin(badgeValue).pipe(
+          catchError((err) => {
+            console.error('User signin error:', err);
+            return of(null);
+          })
+        ),
+        adminResponse: this.adminService.signin(badgeValue).pipe(
+          catchError((err) => {
+            console.error('Admin signin error:', err);
+            return of(null);
+          })
+        )
+      }).subscribe({
+        next: (results) => {
+          this.loading = false;
+          this.user = results.userResponse?.user || null;
+          this.admin = results.adminResponse?.admin || null;
+          this.changeDetectorRef.markForCheck();
+          this.handleSigninResult();
+        },
+        error: (err) => {
+          console.error('Signin failed:', err);
+          this.loading = false;
+          this.message = 'aucun Utilisateur/Administrateur trouvé!';
+          this.badgeId = '';
+          this.changeDetectorRef.markForCheck();
+        }
+      });
+    }
+  }
+
+  /**
+   * Handle the signin result based on what roles were found
+   * - If both user and admin: show dialog to choose role
+   * - If only user: navigate to user page
+   * - If only admin: navigate to admin page
+   * - If neither: show error message
+   */
+  private handleSigninResult(): void {
+    if (this.user && this.admin) {
+      // User has both roles - show choice dialog
+      const dialogRef = this.dialog.open(SigninChoiceDialogComponent, {
+        width: '400px',
+        disableClose: true,
+        data: { user: this.user, admin: this.admin }
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'user') {
+          this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
+        } else if (result === 'admin') {
+          this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
+        }
+      });
+    } else if (this.user) {
+      // Only user role found
+      this.router.navigate(['/user', { user: JSON.stringify(this.user) }]);
+    } else if (this.admin) {
+      // Only admin role found
+      this.router.navigate(['/admin', { admin: JSON.stringify(this.admin) }]);
+    } else {
+      // No roles found
+      this.message = 'aucun Utilisateur/Administrateur trouvé!';
+      this.badgeId = '';
+    }
   }
 
   ngAfterViewInit() {

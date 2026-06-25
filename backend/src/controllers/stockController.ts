@@ -1,16 +1,16 @@
 /**
  * Stock Controller
- * Updated to use NeDB
+ * Updated to use NeDB and Stock types
  */
 
 import { Request, Response } from 'express';
 import { getStockDB } from '@/config/database.js';
 import { asyncHandler } from '@/middleware/errorHandler.js';
 import { AppError } from '@/types/index.js';
-import type { IStockDTO } from '@/types/index.js';
+import type { Stock } from '@/types/index.js';
 import logger from '@/utils/logger.js';
-import { findOne, find, findWithSort, insert, update, remove, findWithLimit, generateId } from '@/utils/nedb-helper.js';
-import type { Stock } from '@/models/index.js';
+import { find, findWithSort, findOne, insert, update, remove, findWithLimit, generateId } from '@/utils/nedb-helper.js';
+import type { StockItem } from '@/models/index.js';
 
 /**
  * Get all stock - matches Flask endpoint GET /stock
@@ -23,7 +23,7 @@ export const getAllStock = asyncHandler(async (req: Request, res: Response) => {
   const items = await findWithSort(db, {}, 'itemName', 1);
 
   // Map to stockA/stockB format matching Flask response
-  const stock = {
+  const stock: Stock = {
     stockA: items[0]?.quantity || 0,
     stockB: items[1]?.quantity || 0,
   };
@@ -69,7 +69,7 @@ export const searchStock = asyncHandler(async (req: Request, res: Response) => {
 
   // NeDB simple search across multiple fields
   const allItems = await find(db, {});
-  const results = allItems.filter((item: Stock) => {
+  const results = allItems.filter((item: StockItem) => {
     return (
       (item.itemName && item.itemName.toLowerCase().includes(searchTerm)) ||
       (item.description && item.description.toLowerCase().includes(searchTerm)) ||
@@ -90,7 +90,7 @@ export const searchStock = asyncHandler(async (req: Request, res: Response) => {
  * Expects body: { stockA, stockB }
  */
 export const createStock = asyncHandler(async (req: Request, res: Response) => {
-  const { stockA, stockB } = req.body;
+  const { stockA, stockB } = req.body as Stock;
 
   // Validate input
   if (stockA === undefined || stockB === undefined) {
@@ -104,7 +104,7 @@ export const createStock = asyncHandler(async (req: Request, res: Response) => {
 
   // If less than 2 items exist, create them
   if (items.length === 0) {
-    const item1: Stock = {
+    const item1: StockItem = {
       _id: generateId(),
       itemName: 'Stock Item A',
       sku: 'STOCK-A',
@@ -117,7 +117,7 @@ export const createStock = asyncHandler(async (req: Request, res: Response) => {
       updatedAt: new Date(),
     };
 
-    const item2: Stock = {
+    const item2: StockItem = {
       _id: generateId(),
       itemName: 'Stock Item B',
       sku: 'STOCK-B',
@@ -134,7 +134,7 @@ export const createStock = asyncHandler(async (req: Request, res: Response) => {
     await insert(db, item2);
     items = [item1, item2];
   } else if (items.length === 1) {
-    const item2: Stock = {
+    const item2: StockItem = {
       _id: generateId(),
       itemName: 'Stock Item B',
       sku: 'STOCK-B',
@@ -167,7 +167,7 @@ export const createStock = asyncHandler(async (req: Request, res: Response) => {
  * Updates first two stock items' quantities
  */
 export const updateStock = asyncHandler(async (req: Request, res: Response) => {
-  const { stockA, stockB } = req.body;
+  const { stockA, stockB } = req.body as Stock;
 
   // Validate input
   if (stockA === undefined || stockB === undefined) {
@@ -192,7 +192,7 @@ export const updateStock = asyncHandler(async (req: Request, res: Response) => {
   // Return updated stock
   const updatedItems = await findWithSort(db, {}, 'itemName', 1);
 
-  const stock = {
+  const stock: Stock = {
     stockA: updatedItems[0]?.quantity || 0,
     stockB: updatedItems[1]?.quantity || 0,
   };
@@ -273,7 +273,10 @@ export const getLowStock = asyncHandler(async (req: Request, res: Response) => {
   const items = await findWithSort(db, {}, 'quantity', 1);
 
   // Filter items where quantity <= reorderLevel
-  const lowStockItems = items.filter((item: Stock) => item.quantity !== undefined && item.reorderLevel !== undefined && item.quantity <= item.reorderLevel);
+  const lowStockItems = items.filter(
+    (item: StockItem) =>
+      item.quantity !== undefined && item.reorderLevel !== undefined && item.quantity <= item.reorderLevel
+  );
 
   res.json({
     success: true,

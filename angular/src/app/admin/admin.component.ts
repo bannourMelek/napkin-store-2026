@@ -7,6 +7,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { StockService } from '../services/stock.service';
 import { GpioService } from '../services/gpio.service';
 import { GPIO_CONFIG } from '../config/gpio.config';
+import { Stock } from '../entities/stock';
 
 @Component({
   selector: 'app-admin',
@@ -21,7 +22,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   admin: any;
   loading = false;
 
-  stock = {
+  stock: Stock = {
     stockA: 0,
     stockB: 0,
   };

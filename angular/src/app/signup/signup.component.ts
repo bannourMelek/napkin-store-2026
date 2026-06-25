@@ -9,6 +9,7 @@ import * as ExcelJS from 'exceljs';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../entities/user';
+import { Stock } from '../entities/stock';
 import { StockService } from '../services/stock.service';
 import { GpioService } from '../services/gpio.service';
 import { GPIO_CONFIG } from '../config/gpio.config';
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
     mat: '',
   };
 
-  stock = {
+  stock: Stock = {
     stockA: 0,
     stockB: 0,
   };

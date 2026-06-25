@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StockService } from '../services/stock.service';
 import { UserService } from '../services/user.service';
 import { User } from '../entities/user';
+import { Stock } from '../entities/stock';
 import { GpioService } from '../services/gpio.service';
 import { io } from 'socket.io-client';
 
@@ -20,7 +21,7 @@ import { io } from 'socket.io-client';
 export class UserComponent implements AfterViewChecked, OnInit {
   user: User;
 
-  stock = {
+  stock: Stock = {
     stockA: 0,
     stockB: 0,
   };

@@ -10,6 +10,7 @@ import { AdminService } from '../services/admin.service';
 import { StockService } from '../services/stock.service';
 import { GpioService } from '../services/gpio.service';
 import { GPIO_CONFIG } from '../config/gpio.config';
+import { Stock } from '../entities/stock';
 import { SigninChoiceDialogComponent } from './signin-choice-dialog.component';
 
 @Component({
@@ -26,7 +27,7 @@ export class SigninComponent implements OnInit, AfterViewInit {
   admin: any;
   loading = false;
 
-  stock = {
+  stock: Stock = {
     stockA: 0,
     stockB: 0,
   };

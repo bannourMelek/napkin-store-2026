@@ -44,9 +44,17 @@ export interface Admin {
 }
 
 /**
- * Stock Entity
+ * Stock Entity - Simple two-bin inventory system
  */
 export interface Stock {
+  stockA: number;
+  stockB: number;
+}
+
+/**
+ * Detailed Stock Item Entity (for internal inventory management)
+ */
+export interface StockItem {
   _id?: string;
   sku: string;
   quantity: number;

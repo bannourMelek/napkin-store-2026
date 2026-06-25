@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Stock } from '../entities/stock';
 
 @Injectable({
   providedIn: 'root',
@@ -8,12 +10,11 @@ import { environment } from '../../environments/environment';
 export class StockService {
   constructor(private http: HttpClient) {}
 
-  getStock() {
-    return this.http.get<any>(environment.apiUrl + 'stock');
+  getStock(): Observable<{ stock: Stock }> {
+    return this.http.get<{ stock: Stock }>(environment.apiUrl + 'stock');
   }
 
-  updateStock(body: any) {
-    return this.http.put(environment.apiUrl + 'stock', body);
+  updateStock(body: Stock): Observable<{ message: string; stock: Stock }> {
+    return this.http.put<{ message: string; stock: Stock }>(environment.apiUrl + 'stock', body);
   }
-
 }

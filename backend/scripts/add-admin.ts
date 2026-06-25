@@ -6,48 +6,42 @@
  * Simply modify the ADMINS array below with your admin data and run the script
  */
 
-import { PrismaClient } from '@prisma/client';
-import bcryptjs from 'bcryptjs';
+import { connectDB, getAdminsDB } from '@/config/database.js';
 import logger from '@/utils/logger.js';
-
-const prisma = new PrismaClient();
+import { insert, find, generateId } from '@/utils/nedb-helper.js';
+import type { Admin } from '@/models/index.js';
 
 // ============================================================================
 // MODIFY THIS ARRAY TO ADD YOUR ADMINS
 // ============================================================================
 
 interface AdminInput {
-  email: string;
-  username: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-  adminLevel: 'superadmin' | 'moderator' | 'support';
-  department?: string;
-  permissions?: string[];
+  mat: string;
+  name: string;
+  org?: string;
+  jobName: string;
+  badgeNum: number;
+  badgeId: string;
 }
 
 const ADMINS: AdminInput[] = [
   {
-    email: 'admin@napkinstore.com',
-    username: 'admin',
-    password: 'Admin@123456',
-    firstName: 'Admin',
-    lastName: 'User',
-    adminLevel: 'superadmin',
-    department: 'Management',
-    permissions: ['*'],
+    mat: '4049360',
+    name: 'Malek Bannour',
+    org: 'IT',
+    jobName: 'specialist IT',
+    badgeNum: 4160308,
+    badgeId: '>11,4254462,4E0040EAFE<11,4254462,4E0040EAFE',
+
   },
   // Add more admins below:
   // {
-  //   email: 'moderator@napkinstore.com',
-  //   username: 'moderator',
-  //   password: 'Mod@123456',
-  //   firstName: 'Moderator',
-  //   lastName: 'User',
-  //   adminLevel: 'moderator',
-  //   department: 'Support',
-  //   permissions: ['read', 'update'],
+  //   mat: 'ADMIN002',
+  //   name: 'Another Admin',
+  //   org: 'Support',
+  //   jobName: 'Support Admin',
+  //   badgeNum: 1002,
+  //   badgeId: 'BADGE-ADMIN-002',
   // },
 ];
 
@@ -57,71 +51,55 @@ const ADMINS: AdminInput[] = [
 
 async function addAdmins(): Promise<void> {
   try {
+    await connectDB();
+    const db = getAdminsDB();
+
     logger.info(`📝 Adding ${ADMINS.length} admin(s)...`);
 
     for (const adminData of ADMINS) {
       try {
-        // Hash password
-        const passwordHash = await bcryptjs.hash(adminData.password, 10);
-
-        // Create or update user
-        const user = await prisma.user.upsert({
-          where: { email: adminData.email },
-          update: {
-            role: 'admin',
-            status: 'active',
-          },
-          create: {
-            email: adminData.email,
-            username: adminData.username,
-            passwordHash,
-            firstName: adminData.firstName,
-            lastName: adminData.lastName,
-            role: 'admin',
-            status: 'active',
-          },
+        // Check if admin already exists by mat or badgeId
+        const existingAdmins = await find(db, {
+          $or: [{ mat: adminData.mat }, { badgeId: adminData.badgeId }],
         });
 
-        logger.info(`✅ User created/updated: ${adminData.email} (${user.id})`);
+        if (existingAdmins.length > 0) {
+          logger.warn(`⚠️  Admin already exists: ${adminData.mat} (${adminData.name})`);
+          continue;
+        }
 
-        // Create or update admin
-        const admin = await prisma.admin.upsert({
-          where: { userId: user.id },
-          update: {
-            adminLevel: adminData.adminLevel,
-            department: adminData.department,
-            permissions: adminData.permissions ? JSON.stringify(adminData.permissions) : null,
-          },
-          create: {
-            userId: user.id,
-            adminLevel: adminData.adminLevel,
-            department: adminData.department,
-            permissions: adminData.permissions ? JSON.stringify(adminData.permissions) : null,
-          },
-        });
+        // Create new admin
+        const newAdmin: Admin = {
+          _id: generateId(),
+          mat: adminData.mat,
+          name: adminData.name,
+          org: adminData.org,
+          jobName: adminData.jobName,
+          badgeNum: adminData.badgeNum,
+          badgeId: adminData.badgeId,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        };
 
-        logger.info(
-          `✅ Admin created: ${adminData.email} (Level: ${adminData.adminLevel}) (${admin.id})`
-        );
-        logger.info(`   Email: ${adminData.email}`);
-        logger.info(`   Level: ${adminData.adminLevel}`);
-        logger.info(`   Department: ${adminData.department || 'N/A'}`);
+        const admin = await insert(db, newAdmin);
+
+        logger.info(`✅ Admin created: ${adminData.mat} (${adminData.name})`);
+        logger.info(`   ID: ${admin._id}`);
+        logger.info(`   Job: ${adminData.jobName}`);
+        logger.info(`   Badge: ${adminData.badgeId}`);
+        logger.info(`   Org: ${adminData.org || 'N/A'}`);
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
-        logger.error(`❌ Error adding admin ${adminData.email}: ${message}`);
+        logger.error(`❌ Error adding admin ${adminData.mat}: ${message}`);
       }
     }
 
     // Show all admins
     logger.info('\n📊 All admins in database:');
-    const allAdmins = await prisma.admin.findMany({
-      include: { user: true },
-    });
+    const allAdmins = await find(db, {});
 
-    allAdmins.forEach((admin) => {
-      logger.info(
-        `  • ${admin.user.email} (${admin.adminLevel}) - ${admin.user.status}`
-      );
+    allAdmins.forEach((admin: any) => {
+      logger.info(`  • ${admin.mat} - ${admin.name} (${admin.jobName})`);
     });
 
     logger.info(`\n✅ Admin setup complete! Total admins: ${allAdmins.length}`);
@@ -129,8 +107,6 @@ async function addAdmins(): Promise<void> {
     const message = error instanceof Error ? error.message : String(error);
     logger.error(`❌ Script failed: ${message}`);
     process.exit(1);
-  } finally {
-    await prisma.$disconnect();
   }
 }
 

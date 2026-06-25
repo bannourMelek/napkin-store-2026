@@ -78,6 +78,17 @@ export interface IAdminResponse extends Admin {
 // Stock/Inventory Types
 // ============================================================================
 
+/**
+ * Stock - Simple two-bin inventory system (matches frontend)
+ */
+export interface Stock {
+  stockA: number;
+  stockB: number;
+}
+
+/**
+ * Detailed Stock Item (for internal inventory management)
+ */
 export interface IStock {
   _id?: string;
   itemName: string;

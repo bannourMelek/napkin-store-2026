@@ -13339,3 +13339,2226 @@
     "t": "p1d7xifd"
   }
 }
+[33m2026-06-26 11:14:07 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-26 11:14:07 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-26 11:14:07 [INFO][0m 📝 Environment: development 
+[36m2026-06-26 11:14:07 [INFO][0m 📊 Database: NeDB 
+[36m2026-06-26 11:14:07 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-06-26 11:14:07 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-26 11:14:07 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-26 11:14:07 [INFO][0m [object Object] 
+[36m2026-06-26 11:14:07 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-26 11:14:07 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-26 11:14:07 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-26 11:58:20 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 11:58:20 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 11:58:20 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 11:58:20 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 11:58:20 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:00:31 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:00:31 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:00:31 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:00:31 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:00:31 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:00:56 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-26 12:01:21 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-26 12:01:21 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-26 12:01:21 [INFO][0m 📝 Environment: development 
+[36m2026-06-26 12:01:21 [INFO][0m 📊 Database: NeDB 
+[36m2026-06-26 12:01:21 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-06-26 12:01:21 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-26 12:01:21 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-26 12:01:21 [INFO][0m [object Object] 
+[36m2026-06-26 12:01:21 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-26 12:01:21 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-26 12:01:21 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:09 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:13 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:02:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tnbvnm1v"
+  }
+}
+[36m2026-06-26 12:02:13 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:02:13 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:02:13 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:02:13 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:02:14 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tncy42gv"
+  }
+}
+[36m2026-06-26 12:02:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tne18xt1"
+  }
+}
+[36m2026-06-26 12:02:19 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tngfjz42"
+  }
+}
+[36m2026-06-26 12:02:24 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tnkanacd"
+  }
+}
+[36m2026-06-26 12:02:29 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tno5vyz5"
+  }
+}
+[36m2026-06-26 12:02:34 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tns17h3t"
+  }
+}
+[36m2026-06-26 12:02:39 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tnvwcvh1"
+  }
+}
+[36m2026-06-26 12:02:43 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:02:43 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:02:43 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:02:43 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:02:43 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:02:44 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tnzrjbz5"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:47 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:02:49 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to3kne0l"
+  }
+}
+[36m2026-06-26 12:02:49 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:02:49 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:02:49 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:02:49 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:02:49 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:02:49 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to3mpemm"
+  }
+}
+[36m2026-06-26 12:02:50 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to4i6z91"
+  }
+}
+[36m2026-06-26 12:02:52 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to5wna20"
+  }
+}
+[36m2026-06-26 12:02:54 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to7hs94a"
+  }
+}
+[36m2026-06-26 12:02:55 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "to7xowxa"
+  }
+}
+[36m2026-06-26 12:03:33 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:03:33 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:03:33 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:03:33 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:03:33 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:03:36 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:03:36 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:03:38 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:03:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tp5mg1xo"
+  }
+}
+[36m2026-06-26 12:03:38 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:03:38 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:03:38 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:03:38 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:03:40 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tp6sbhei"
+  }
+}
+[36m2026-06-26 12:03:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tp7upffv"
+  }
+}
+[36m2026-06-26 12:03:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpbq1hzb"
+  }
+}
+[36m2026-06-26 12:03:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpflindt"
+  }
+}
+[36m2026-06-26 12:03:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpjgm2vg"
+  }
+}
+[36m2026-06-26 12:04:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpnbub0x"
+  }
+}
+[36m2026-06-26 12:04:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpr71a9n"
+  }
+}
+[36m2026-06-26 12:04:08 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:04:08 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:04:08 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:04:08 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:04:08 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:04:11 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpv24npr"
+  }
+}
+[36m2026-06-26 12:04:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tpyxize7"
+  }
+}
+[36m2026-06-26 12:04:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tq2ssdk6"
+  }
+}
+[36m2026-06-26 12:04:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tq6o4bjb"
+  }
+}
+[36m2026-06-26 12:04:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqajfhnc"
+  }
+}
+[36m2026-06-26 12:04:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqeej2mz"
+  }
+}
+[36m2026-06-26 12:04:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqi9q260"
+  }
+}
+[36m2026-06-26 12:04:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqm4qkjd"
+  }
+}
+[36m2026-06-26 12:04:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqpzw26d"
+  }
+}
+[36m2026-06-26 12:04:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqtv7d5x"
+  }
+}
+[36m2026-06-26 12:05:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tqxqbka6"
+  }
+}
+[36m2026-06-26 12:05:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tr1lo79a"
+  }
+}
+[36m2026-06-26 12:05:11 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tr5h2y6m"
+  }
+}
+[36m2026-06-26 12:05:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tr9ci16k"
+  }
+}
+[36m2026-06-26 12:05:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trd7lrpf"
+  }
+}
+[36m2026-06-26 12:05:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trh2tzjz"
+  }
+}
+[36m2026-06-26 12:05:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trky0l5n"
+  }
+}
+[36m2026-06-26 12:05:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trot9v4q"
+  }
+}
+[36m2026-06-26 12:05:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trsoaftk"
+  }
+}
+[36m2026-06-26 12:05:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "trwjip7h"
+  }
+}
+[36m2026-06-26 12:05:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ts0eotzh"
+  }
+}
+[36m2026-06-26 12:05:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ts49x4hr"
+  }
+}
+[36m2026-06-26 12:06:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ts84xdbe"
+  }
+}
+[36m2026-06-26 12:06:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tsc01s6b"
+  }
+}
+[36m2026-06-26 12:06:09 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-26 12:06:24 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-26 12:06:24 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-26 12:06:24 [INFO][0m 📝 Environment: development 
+[36m2026-06-26 12:06:24 [INFO][0m 📊 Database: NeDB 
+[36m2026-06-26 12:06:24 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-06-26 12:06:24 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-26 12:06:24 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-26 12:06:24 [INFO][0m [object Object] 
+[36m2026-06-26 12:06:24 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-26 12:06:24 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-26 12:06:24 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-26 12:06:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tsqrdu96"
+  }
+}
+[36m2026-06-26 12:06:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tsumlwl8"
+  }
+}
+[36m2026-06-26 12:06:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tsyhowjp"
+  }
+}
+[36m2026-06-26 12:06:38 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:06:38 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:06:38 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:06:38 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:06:38 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:06:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tt2cq0v9"
+  }
+}
+[36m2026-06-26 12:06:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tt67vzzv"
+  }
+}
+[36m2026-06-26 12:06:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tta37h68"
+  }
+}
+[36m2026-06-26 12:06:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ttdyaunt"
+  }
+}
+[36m2026-06-26 12:07:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tthtespk"
+  }
+}
+[36m2026-06-26 12:07:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ttlof4y7"
+  }
+}
+[36m2026-06-26 12:07:11 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ttpjkibc"
+  }
+}
+[36m2026-06-26 12:07:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tttf078t"
+  }
+}
+[36m2026-06-26 12:07:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ttxa3abc"
+  }
+}
+[36m2026-06-26 12:07:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tu15cues"
+  }
+}
+[36m2026-06-26 12:07:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tu50iydv"
+  }
+}
+[36m2026-06-26 12:07:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tu8vxtze"
+  }
+}
+[36m2026-06-26 12:07:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tucr8e2i"
+  }
+}
+[36m2026-06-26 12:07:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tugmktek"
+  }
+}
+[36m2026-06-26 12:07:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tuki0sri"
+  }
+}
+[36m2026-06-26 12:07:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tuod176z"
+  }
+}
+[36m2026-06-26 12:08:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tus87kxv"
+  }
+}
+[36m2026-06-26 12:08:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tuw3k55s"
+  }
+}
+[36m2026-06-26 12:08:11 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tuzymiib"
+  }
+}
+[36m2026-06-26 12:08:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tv3tpx6d"
+  }
+}
+[36m2026-06-26 12:08:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tv7p0jng"
+  }
+}
+[36m2026-06-26 12:08:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvbk5ieg"
+  }
+}
+[36m2026-06-26 12:08:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvffmvi0"
+  }
+}
+[36m2026-06-26 12:08:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvjarmhy"
+  }
+}
+[36m2026-06-26 12:08:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvn5zvng"
+  }
+}
+[36m2026-06-26 12:08:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvr1a68w"
+  }
+}
+[36m2026-06-26 12:08:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvuwfcur"
+  }
+}
+[36m2026-06-26 12:08:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tvyrmvxh"
+  }
+}
+[36m2026-06-26 12:09:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tw2mq3u7"
+  }
+}
+[36m2026-06-26 12:09:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tw6i6aq1"
+  }
+}
+[36m2026-06-26 12:09:11 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twad6lln"
+  }
+}
+[36m2026-06-26 12:09:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twe8in9j"
+  }
+}
+[36m2026-06-26 12:09:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twi3wruc"
+  }
+}
+[36m2026-06-26 12:09:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twlz70cg"
+  }
+}
+[36m2026-06-26 12:09:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twpuld20"
+  }
+}
+[36m2026-06-26 12:09:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twtpwsve"
+  }
+}
+[36m2026-06-26 12:09:41 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "twxl0fzb"
+  }
+}
+[36m2026-06-26 12:09:46 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "tx1gcxt9"
+  }
+}
+[36m2026-06-26 12:10:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:10:17 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:10:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:10:17 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:10:17 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:10:20 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:10:20 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:10:20 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:10:20 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:10:20 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:10:46 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:10:46 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:10:46 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:10:46 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:10:46 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:12:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:12:17 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:12:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:12:17 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:12:17 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:12:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:12:44 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:12:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:12:44 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:12:44 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:12:58 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:12:58 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:12:58 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:12:58 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:12:58 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:13:36 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:13:36 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:13:36 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:13:36 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:13:36 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:14:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:14:04 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:14:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:14:04 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:14:04 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:02 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:02 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:02 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:02 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:02 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:08 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:08 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:08 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:08 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:08 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:11 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:11 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:11 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:13 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:13 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:13 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:13 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:13 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:16 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:16 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:16 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:16 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:15:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:15:44 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:15:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:15:44 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:15:44 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:19:01 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:19:01 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:19:01 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:19:01 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:19:01 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:20:19 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:20:19 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:20:19 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:20:19 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:20:19 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:21:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:21:04 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:21:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:21:04 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:21:04 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:21:14 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:21:14 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:21:14 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:21:14 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:21:14 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:21:18 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:21:18 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-06-26 12:21:18 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:30:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[36m2026-06-26 12:21:18 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:21:18 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:21:18 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:21:18 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:21:18 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:21:24 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:21:24 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:21:24 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:21:24 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:21:24 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:21:28 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:21:28 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:21:28 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:21:28 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:21:28 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:22:16 [INFO][0m POST /api/user {
+  "body": {
+    "mat": 4020145,
+    "name": "Nejet Dga",
+    "jobName": "Assistant (e)",
+    "badgeNum": 4160712,
+    "stock": 5,
+    "badgeId": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  },
+  "query": {}
+}
+[36m2026-06-26 12:22:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:22:16 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ud4ayfz1"
+  }
+}
+[36m2026-06-26 12:22:16 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:22:16 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:22:16 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:22:16 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:22:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ud5bng1h"
+  }
+}
+[36m2026-06-26 12:22:19 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ud6k9i1r"
+  }
+}
+[36m2026-06-26 12:22:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ud9mi8zx"
+  }
+}
+[36m2026-06-26 12:22:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uddhip5o"
+  }
+}
+[36m2026-06-26 12:22:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udhcv51w"
+  }
+}
+[36m2026-06-26 12:22:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udl86se8"
+  }
+}
+[36m2026-06-26 12:22:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udp3bciu"
+  }
+}
+[36m2026-06-26 12:22:46 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:22:46 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:22:46 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:22:46 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:22:46 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:22:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udsypmjd"
+  }
+}
+[36m2026-06-26 12:22:49 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:22:49 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:22:52 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:22:52 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udvuc70x"
+  }
+}
+[36m2026-06-26 12:22:52 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:22:52 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:22:52 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:22:52 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:22:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udwbhi7h"
+  }
+}
+[36m2026-06-26 12:22:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udwu4v3r"
+  }
+}
+[36m2026-06-26 12:22:56 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "udymyko7"
+  }
+}
+[36m2026-06-26 12:22:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue0e8b1w"
+  }
+}
+[36m2026-06-26 12:22:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue0pixc8"
+  }
+}
+[36m2026-06-26 12:23:03 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue49gcnn"
+  }
+}
+[36m2026-06-26 12:23:03 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue4kqlw2"
+  }
+}
+[36m2026-06-26 12:23:08 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue84or64"
+  }
+}
+[36m2026-06-26 12:23:08 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ue8fxjl9"
+  }
+}
+[36m2026-06-26 12:23:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uebzq2nn"
+  }
+}
+[36m2026-06-26 12:23:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uecbevxb"
+  }
+}
+[36m2026-06-26 12:23:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uefv7kt5"
+  }
+}
+[36m2026-06-26 12:23:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ueg6v45u"
+  }
+}
+[36m2026-06-26 12:23:22 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:23:22 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:23:22 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:23:22 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:23:22 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:23:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uejqb89y"
+  }
+}
+[36m2026-06-26 12:23:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uek1xj2w"
+  }
+}
+[36m2026-06-26 12:23:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uenle4gy"
+  }
+}
+[36m2026-06-26 12:23:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uenx4r92"
+  }
+}
+[36m2026-06-26 12:23:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uergwtm9"
+  }
+}
+[36m2026-06-26 12:23:33 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uersm3nm"
+  }
+}
+[36m2026-06-26 12:23:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uevch4ym"
+  }
+}
+[36m2026-06-26 12:23:38 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uevnr8d9"
+  }
+}
+[36m2026-06-26 12:23:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uez7rj09"
+  }
+}
+[36m2026-06-26 12:23:43 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:23:43 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:23:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ueziwxu1"
+  }
+}
+[36m2026-06-26 12:23:45 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:23:45 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:23:45 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:23:45 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:23:45 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:23:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uf32uuna"
+  }
+}
+[36m2026-06-26 12:23:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uf3e4y1o"
+  }
+}
+[36m2026-06-26 12:23:50 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:23:50 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:23:50 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:23:50 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:23:50 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:23:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uf6y2q8e"
+  }
+}
+[36m2026-06-26 12:23:53 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uf79c563"
+  }
+}
+[36m2026-06-26 12:23:58 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufb3bobd"
+  }
+}
+[36m2026-06-26 12:23:59 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufbv0xfb"
+  }
+}
+[36m2026-06-26 12:24:03 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufeynibn"
+  }
+}
+[36m2026-06-26 12:24:04 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uffq5a7e"
+  }
+}
+[36m2026-06-26 12:24:08 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufitu95x"
+  }
+}
+[36m2026-06-26 12:24:09 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufjlkndn"
+  }
+}
+[36m2026-06-26 12:24:14 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufnfs32o"
+  }
+}
+[36m2026-06-26 12:24:15 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufo7hv31"
+  }
+}
+[36m2026-06-26 12:24:20 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufs23u58"
+  }
+}
+[36m2026-06-26 12:24:21 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufsu7m4g"
+  }
+}
+[36m2026-06-26 12:24:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufwp3f1n"
+  }
+}
+[36m2026-06-26 12:24:27 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ufxgk6zm"
+  }
+}
+[36m2026-06-26 12:24:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug0kcs1v"
+  }
+}
+[36m2026-06-26 12:24:32 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug1bpu35"
+  }
+}
+[36m2026-06-26 12:24:33 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:24:33 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:24:33 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:24:33 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:24:33 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:24:36 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:24:36 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:24:36 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:24:36 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:24:36 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:24:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug4fkk9c"
+  }
+}
+[36m2026-06-26 12:24:37 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug58e8ua"
+  }
+}
+[36m2026-06-26 12:24:42 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug91btfb"
+  }
+}
+[36m2026-06-26 12:24:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ug9tcuo4"
+  }
+}
+[36m2026-06-26 12:24:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugdnux7w"
+  }
+}
+[36m2026-06-26 12:24:49 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugefsr7l"
+  }
+}
+[36m2026-06-26 12:24:54 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugialhxb"
+  }
+}
+[36m2026-06-26 12:24:55 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugj2p4q2"
+  }
+}
+[36m2026-06-26 12:25:00 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugmxhl3s"
+  }
+}
+[36m2026-06-26 12:25:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugnpaoaq"
+  }
+}
+[36m2026-06-26 12:25:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugrk7vd1"
+  }
+}
+[36m2026-06-26 12:25:07 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugsby6ar"
+  }
+}
+[36m2026-06-26 12:25:12 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugw6xlip"
+  }
+}
+[36m2026-06-26 12:25:13 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ugwyil5t"
+  }
+}
+[36m2026-06-26 12:25:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uh0t7xy0"
+  }
+}
+[36m2026-06-26 12:25:19 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uh1lbphu"
+  }
+}
+[36m2026-06-26 12:25:24 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uh5h8s9r"
+  }
+}
+[36m2026-06-26 12:25:26 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uh6d9kw8"
+  }
+}
+[36m2026-06-26 12:25:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uha3abdz"
+  }
+}
+[36m2026-06-26 12:25:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhauinql"
+  }
+}
+[36m2026-06-26 12:25:36 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhepjtxy"
+  }
+}
+[36m2026-06-26 12:25:37 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhfh6y6w"
+  }
+}
+[36m2026-06-26 12:25:42 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhjbw9pj"
+  }
+}
+[36m2026-06-26 12:25:43 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhk43137"
+  }
+}
+[36m2026-06-26 12:25:48 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uho0ddvb"
+  }
+}
+[36m2026-06-26 12:25:50 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhout908"
+  }
+}
+[36m2026-06-26 12:25:54 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhslkusd"
+  }
+}
+[36m2026-06-26 12:25:55 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhtdc9oh"
+  }
+}
+[36m2026-06-26 12:26:00 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhx7ugxm"
+  }
+}
+[36m2026-06-26 12:26:01 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uhy0120y"
+  }
+}
+[36m2026-06-26 12:26:06 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ui1uw5yn"
+  }
+}
+[36m2026-06-26 12:26:07 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ui2mfkv1"
+  }
+}
+[36m2026-06-26 12:26:12 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ui6hhccs"
+  }
+}
+[36m2026-06-26 12:26:12 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "ui6hjddi"
+  }
+}
+[36m2026-06-26 12:26:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uib40jc0"
+  }
+}
+[36m2026-06-26 12:26:18 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uib424tx"
+  }
+}
+[36m2026-06-26 12:26:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uiezcuze"
+  }
+}
+[36m2026-06-26 12:26:23 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uiezdf7c"
+  }
+}
+[36m2026-06-26 12:26:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uiiulv92"
+  }
+}
+[36m2026-06-26 12:26:28 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "uiiumvsv"
+  }
+}
+[36m2026-06-26 12:26:30 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:26:30 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:26:30 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:26:30 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:26:30 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:26:42 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:26:42 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:26:42 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:26:42 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:26:42 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:31:51 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:31:51 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:31:51 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:31:51 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:31:51 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:39:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:39:41 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:39:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:39:41 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:39:41 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:39:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:39:44 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:39:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:39:44 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:39:44 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:43:03 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:43:03 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:43:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:43:04 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:43:04 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:45:18 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:45:18 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:45:18 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:45:18 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:45:18 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:45:21 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:45:21 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:45:21 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:45:21 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:45:21 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:45:24 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:45:24 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-06-26 12:45:27 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:45:27 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v6xs8szv"
+  }
+}
+[36m2026-06-26 12:45:27 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:45:27 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-06-26 12:45:27 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:45:27 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-06-26 12:45:29 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v6ywmfob"
+  }
+}
+[36m2026-06-26 12:45:31 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v70qw2nm"
+  }
+}
+[36m2026-06-26 12:45:34 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v732gnch"
+  }
+}
+[36m2026-06-26 12:45:39 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v76xedtg"
+  }
+}
+[36m2026-06-26 12:45:45 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v7bjycgs"
+  }
+}
+[36m2026-06-26 12:45:51 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v7g6qs2l"
+  }
+}
+[36m2026-06-26 12:45:57 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v7kt79za"
+  }
+}
+[36m2026-06-26 12:45:58 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-06-26 12:45:58 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-06-26 12:45:58 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-06-26 12:45:58 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-06-26 12:45:58 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-06-26 12:46:02 [INFO][0m GET /socket.io/ {
+  "query": {
+    "EIO": "4",
+    "transport": "polling",
+    "t": "v7oocf7g"
+  }
+}
+[36m2026-06-26 12:46:05 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-06-26 12:46:10 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-26 12:46:10 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-26 12:46:10 [INFO][0m 📝 Environment: development 
+[36m2026-06-26 12:46:10 [INFO][0m 📊 Database: NeDB 
+[36m2026-06-26 12:46:10 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-06-26 12:46:10 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-26 12:46:10 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-26 12:46:10 [INFO][0m [object Object] 
+[36m2026-06-26 12:46:10 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-26 12:46:10 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-26 12:46:10 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[31m2026-06-26 12:46:10 [ERROR][0m ❌ Uncaught Exception: More than 10% of the data file is corrupt, the wrong beforeDeserialization hook may be used. Cautiously refusing to start NeDB to prevent dataloss {
+  "stack": "Error: More than 10% of the data file is corrupt, the wrong beforeDeserialization hook may be used. Cautiously refusing to start NeDB to prevent dataloss\n    at Persistence.treatRawData (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\nedb\\lib\\persistence.js:242:11)\n    at C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\node_modules\\nedb\\lib\\persistence.js:281:38\n    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)"
+}
+[33m2026-06-26 12:49:00 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-06-26 12:49:00 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-06-26 12:49:00 [INFO][0m 📝 Environment: development 
+[36m2026-06-26 12:49:00 [INFO][0m 📊 Database: NeDB 
+[36m2026-06-26 12:49:00 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-06-26 12:49:00 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-06-26 12:49:00 [INFO][0m ✅ GPIO service initialized 
+[36m2026-06-26 12:49:00 [INFO][0m [object Object] 
+[36m2026-06-26 12:49:00 [INFO][0m ✅ Socket.IO configured (implementation pending) 
+[36m2026-06-26 12:49:00 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-06-26 12:49:00 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-06-26 12:49:48 [INFO][0m 📍 SIGINT received, shutting down gracefully... 

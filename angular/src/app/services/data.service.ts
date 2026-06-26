@@ -13,7 +13,7 @@ export class DataService {
 
   getExcelFile() {
     return this.httpClient
-      .get('assets/Classeur4.xlsx', { responseType: 'blob' })
+      .get('assets/mets.xlsx', { responseType: 'blob' })
   }
 
 

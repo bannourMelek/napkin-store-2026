@@ -37,7 +37,7 @@ export class SignupEmployeeDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<SignupEmployeeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {} 
 
   onConfirm() {
     this.dialogRef.close(true);

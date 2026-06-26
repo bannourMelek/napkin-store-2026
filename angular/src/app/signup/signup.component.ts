@@ -110,7 +110,7 @@ export class SignupComponent implements OnInit {
           json.push(obj);
         });
 
-        const foundUser = json.find((obj: any) => obj['N.badge'] == this.badgeNum);
+        const foundUser = json.find((obj: any) => obj['N° badge'] == this.badgeNum);
 
         this.loading = false;
         this.cdr.detectChanges();
@@ -119,15 +119,15 @@ export class SignupComponent implements OnInit {
           this.user = {
             mat: foundUser['Mat.'],
             name: foundUser['Matricule'],
-            org: foundUser['ORGA'],
-            direct: foundUser['Direct/Indirect'],
-            costCenter: parseInt(foundUser['Ctre coûts']),
-            birthday: foundUser['Né(e) le'],
-            schoolLevel: foundUser["Cat. d'école"],
-            department: foundUser['Département'],
+            // org: foundUser['ORGA'],
+            // direct: foundUser['Direct/Indirect'],
+            // costCenter: parseInt(foundUser['Ctre coûts']),
+            // birthday: foundUser['Né(e) le'],
+            // schoolLevel: foundUser["Cat. d'école"],
+            department: foundUser['Dept'],
             jobName: foundUser['Emploi'],
-            badgeNum: parseInt(foundUser['N.badge']),
-            superior: foundUser['Nom du supérieur hiérarchique'],
+            badgeNum: parseInt(foundUser['N° badge']),
+            // superior: foundUser['Nom du supérieur hiérarchique'],
             stock: 5,
             badgeId: '',
           };
@@ -202,7 +202,7 @@ export class SignupComponent implements OnInit {
   }
 
   initializeValues() {
-    this.badgeNum = NaN;
+    this.badgeNum = undefined;
     this.badgeId = '';
     this.user = {
       name: '',
@@ -212,6 +212,12 @@ export class SignupComponent implements OnInit {
       badgeNum: 0,
       mat: '',
     };
+    // Defer focus until after change detection completes
+    setTimeout(() => {
+      if (this.myInputField) {
+        this.myInputField.nativeElement.focus();
+      }
+    }, 0);
   }
 
   ngAfterViewInit() {

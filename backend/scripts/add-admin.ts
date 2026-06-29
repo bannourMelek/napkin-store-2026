@@ -20,7 +20,7 @@ interface AdminInput {
   name: string;
   org?: string;
   jobName: string;
-  badgeNum: number;
+  badgeNum?: number;
   badgeId: string;
 }
 
@@ -30,7 +30,6 @@ const ADMINS: AdminInput[] = [
     name: 'Malek Bannour',
     org: 'IT',
     jobName: 'specialist IT',
-    badgeNum: 4160308,
     badgeId: '>11,4254462,4E0040EAFE<11,4254462,4E0040EAFE',
 
   },
@@ -40,7 +39,6 @@ const ADMINS: AdminInput[] = [
   //   name: 'Another Admin',
   //   org: 'Support',
   //   jobName: 'Support Admin',
-  //   badgeNum: 1002,
   //   badgeId: 'BADGE-ADMIN-002',
   // },
 ];
@@ -75,7 +73,6 @@ async function addAdmins(): Promise<void> {
           name: adminData.name,
           org: adminData.org,
           jobName: adminData.jobName,
-          badgeNum: adminData.badgeNum,
           badgeId: adminData.badgeId,
           createdAt: new Date(),
           updatedAt: new Date(),

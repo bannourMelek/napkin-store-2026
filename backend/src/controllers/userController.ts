@@ -7,10 +7,9 @@ import { Request, Response } from 'express';
 import { getUsersDB } from '@/config/database.js';
 import { asyncHandler } from '@/middleware/errorHandler.js';
 import { AppError } from '@/types/index.js';
-import type { IUserDTO, IUserResponse } from '@/types/index.js';
+import type { IUserDTO, IUserResponse, User } from '@/types/index.js';
 import logger from '@/utils/logger.js';
 import { findOne, find, insert, update, remove, findWithLimit, generateId } from '@/utils/nedb-helper.js';
-import type { User } from '@/models/index.js';
 
 /**
  * Get user by badgeId (signin)
@@ -40,27 +39,27 @@ export const getUserByBadge = asyncHandler(async (req: Request, res: Response) =
  * Frontend: POST /user
  */
 export const createUser = asyncHandler(async (req: Request, res: Response) => {
-  const { mat, name, org, direct, costCenter, birthday, schoolLevel, department, jobName, badgeNum, superior, stock, badgeId } = req.body as IUserDTO;
+  const { personalNum, name, org, direct, costCenter, birthday, schoolLevel, department, jobName, badgeNum, superior, stock, badgeId } = req.body as IUserDTO;
 
   // Validation
-  if (!mat || !name || !jobName || badgeNum === undefined || !badgeId) {
-    throw new AppError(400, 'mat, name, jobName, badgeNum, and badgeId are required');
+  if (!personalNum || !name || !jobName || badgeNum === undefined || !badgeId) {
+    throw new AppError(400, 'personalNum, name, jobName, badgeNum, and badgeId are required');
   }
 
   const db = getUsersDB();
 
   // Check if user already exists
   const existingUser = await findOne(db, {
-    $or: [{ mat }, { badgeId }],
+    $or: [{ personalNum }, { badgeId }],
   });
 
   if (existingUser) {
-    throw new AppError(409, 'User with this mat or badgeId already exists');
+    throw new AppError(409, 'User with this personalNum or badgeId already exists');
   }
 
   const newUser: User = {
-    _id: generateId(),
-    mat,
+    id: generateId(),
+    personalNum,
     name,
     org,
     direct,
@@ -90,10 +89,10 @@ export const createUser = asyncHandler(async (req: Request, res: Response) => {
  * Frontend: PUT /user (with id in body)
  */
 export const updateUser = asyncHandler(async (req: Request, res: Response) => {
-  const { mat, ...updates } = req.body;
+  const { personalNum, ...updates } = req.body;
 
-  if (!mat) {
-    throw new AppError(400, 'User mat is required in request body');
+  if (!personalNum) {
+    throw new AppError(400, 'User personalNum is required in request body');
   }
 
   const db = getUsersDB();
@@ -101,14 +100,14 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
   // Add updatedAt timestamp
   updates.updatedAt = new Date();
 
-  const numUpdated = await update(db, { mat }, { $set: updates }, { returnUpdatedDocs: true });
+  const numUpdated = await update(db, { personalNum }, { $set: updates }, { returnUpdatedDocs: true });
 
   if (numUpdated === 0) {
     throw new AppError(404, 'User not found');
   }
 
   // Fetch and return updated user
-  const user = await findOne(db, { mat });
+  const user = await findOne(db, { personalNum });
 
   res.json({
     message: 'success put',
@@ -120,10 +119,10 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
  * Delete user
  */
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { personalNum } = req.params;
 
   const db = getUsersDB();
-  const numRemoved = await remove(db, { _id: id });
+  const numRemoved = await remove(db, { personalNum });
 
   if (numRemoved === 0) {
     throw new AppError(404, 'User not found');

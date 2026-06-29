@@ -8,6 +8,7 @@ import { connectDB, disconnectDB } from '@/config/database.js';
 import { gpioService } from '@/services/gpioService.js';
 import { config } from '@/config/env.js';
 import logger from '@/utils/logger.js';
+import { Server as SocketIOServer } from 'socket.io';
 
 /**
  * Start server
@@ -34,16 +35,41 @@ async function startServer(): Promise<void> {
 
     // Socket.IO (if enabled)
     if (config.ENABLE_SOCKET_IO) {
-      try {
-        // @ts-ignore - socketio import
-        // import { Server as SocketIOServer } from 'socket.io';
-        // const io = new SocketIOServer(server, {
-        //   cors: { origin: config.CORS_ORIGINS }
-        // });
-        logger.info('✅ Socket.IO configured (implementation pending)');
-      } catch (error) {
-        logger.warn('⚠️  Socket.IO not configured');
+      console.log('✅ Socket.IO is enabled');
+      let corsOrigins: string[] | boolean = Array.isArray(config.CORS_ORIGINS)
+        ? config.CORS_ORIGINS.map((origin) => origin.trim())
+        : config.CORS_ORIGINS.split(',').map((origin) => origin.trim());
+
+      // Handle wildcard origins for Electron (file://, app://)
+      const hasWildcard = corsOrigins.some((origin) => origin.includes('*'));
+      if (hasWildcard) {
+        corsOrigins = true; // Allow all origins if wildcard is present
+        logger.info('⚠️  CORS configured with wildcard (allowing all origins for Electron support)');
       }
+
+      const io = new SocketIOServer(server, {
+        cors: {
+          origin: corsOrigins,
+          methods: ['GET', 'POST'],
+          credentials: true,
+          allowedHeaders: ['Content-Type', 'Authorization'],
+        }
+      });
+
+      // Handle Socket.IO connections
+      io.on('connection', (socket) => {
+        logger.info(`✅ Client connected: ${socket.id}`);
+
+        socket.on('disconnect', () => {
+          logger.info(`❌ Client disconnected: ${socket.id}`);
+        });
+
+        socket.on('error', (error) => {
+          logger.error(`⚠️  Socket.IO error from ${socket.id}:`, error);
+        });
+      });
+
+      logger.info('✅ Socket.IO server initialized and listening');
     }
 
     // Start listening

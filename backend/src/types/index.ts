@@ -8,7 +8,7 @@
 
 export interface User {
   id?: string;
-  mat: string;
+  personalNum: string;
   name: string;
   org?: string;
   direct?: string;
@@ -26,7 +26,7 @@ export interface User {
 }
 
 export interface IUserDTO {
-  mat: string;
+  personalNum: string;
   name: string;
   org?: string;
   direct?: string;

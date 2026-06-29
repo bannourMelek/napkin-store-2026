@@ -40,11 +40,11 @@ export const getAdminByBadge = asyncHandler(async (req: Request, res: Response) 
  * Frontend: POST /admin
  */
 export const createAdmin = asyncHandler(async (req: Request, res: Response) => {
-  const { mat, name, org, jobName, badgeNum, badgeId } = req.body as IAdminDTO;
+  const { mat, name, org, jobName, badgeId } = req.body as IAdminDTO;
 
   // Validation
-  if (!mat || !name || !jobName || badgeNum === undefined || !badgeId) {
-    throw new AppError(400, 'mat, name, jobName, badgeNum, and badgeId are required');
+  if (!mat || !name || !jobName || !badgeId) {
+    throw new AppError(400, 'mat, name, jobName, and badgeId are required');
   }
 
   const db = getAdminsDB();
@@ -64,7 +64,6 @@ export const createAdmin = asyncHandler(async (req: Request, res: Response) => {
     name,
     org,
     jobName,
-    badgeNum,
     badgeId,
     createdAt: new Date(),
     updatedAt: new Date(),

@@ -21,7 +21,10 @@ export const config = {
   JWT_EXPIRE: process.env.JWT_EXPIRE || '7d',
 
   // CORS
-  CORS_ORIGINS: (process.env.CORS_ORIGINS || 'http://localhost:4200,http://localhost:3000').split(','),
+  CORS_ORIGINS: (
+    process.env.CORS_ORIGINS ||
+    'http://localhost:4200,http://127.0.0.1:4200,http://localhost:3000,http://127.0.0.1:3000,file://*,app://*'
+  ).split(','),
 
   // GPIO Configuration
   GPIO_MODE: (process.env.GPIO_MODE || 'BCM') as 'BCM' | 'BOARD',

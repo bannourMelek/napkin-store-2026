@@ -8,9 +8,8 @@ Complete guide to set up and run Angular frontend and Express.js backend service
 2. [Raspberry Pi Initial Setup](#raspberry-pi-initial-setup)
 3. [Backend Setup (Express.js)](#backend-setup-expressjs)
 4. [Frontend Setup (Angular)](#frontend-setup-angular)
-5. [Running Services](#running-services)
-6. [Creating SystemD Services](#creating-systemd-services)
-7. [Troubleshooting](#troubleshooting)
+5. [Creating SystemD Services](#creating-systemd-services)
+6. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -76,9 +75,10 @@ sudo apt install -y libopenjp2-7 libtiff5 libjasper-dev libharfbuzz0b libwebp6
 ### 4. Create Application Directory
 
 ```bash
-sudo mkdir -p /home/pi/napkin-store
-sudo chown pi:pi /home/pi/napkin-store
-cd /home/pi/napkin-store
+sudo mkdir -p /home/admin/napkin-store-2026
+sudo chown admin:admin /home/admin/napkin-store-2026
+sudo chmod 755 /home/admin/napkin-store-2026
+cd /home/admin/napkin-store-2026
 ```
 
 ---
@@ -88,7 +88,7 @@ cd /home/pi/napkin-store
 ### 1. Clone/Copy Backend Code
 
 ```bash
-cd /home/pi/napkin-store
+cd /home/admin/napkin-store-2026
 git clone <your-repo-url> .
 # or copy your project files
 
@@ -103,7 +103,7 @@ npm install
 
 ### 3. Configure Environment Variables
 
-Create `.env` file in `/home/pi/napkin-store/backend`:
+Create `.env` file in `/home/admin/napkin-store-2026/backend`:
 
 ```bash
 cat > .env << 'EOF'
@@ -132,11 +132,17 @@ LOG_FILE=/var/log/napkin-store/backend.log
 EOF
 ```
 
-### 4. Setup Database (SQLite)
-**********************************
+### 4. Setup Database (SQLite) & Log Directory
+**********************************************************
 ```bash
 # Create data directory
-mkdir -p /home/pi/napkin-store/backend/data
+mkdir -p /home/admin/napkin-store-2026/backend/data
+chmod 755 /home/admin/napkin-store-2026/backend/data
+
+# Create log directory for systemd services
+sudo mkdir -p /var/log/napkin-store
+sudo chown admin:admin /var/log/napkin-store
+sudo chmod 755 /var/log/napkin-store
 
 # Run database initialization (if you have a script)
 npm run db:init  # or your db initialization script
@@ -163,7 +169,7 @@ npm start
 ### 1. Navigate to Angular Directory
 
 ```bash
-cd /home/pi/napkin-store/angular
+cd /home/admin/napkin-store-2026/angular
 ```
 
 ### 2. Install Dependencies
@@ -204,100 +210,11 @@ npm run build
 
 This creates an optimized production build in `dist/angular/browser/`.
 
-### 5. Test Frontend (Optional)
+### 5. Build Frontend (Optional Test)
 
 ```bash
-npm start
-# Access at http://raspberry-pi-ip:4200
-```
-
----
-
-## Running Services
-
-### Option 1: Manual Startup (For Testing)
-
-**Terminal 1 - Backend:**
-```bash
-cd /home/pi/napkin-store/backend
-npm start
-```
-
-**Terminal 2 - Frontend (Electron):**
-```bash
-cd /home/pi/napkin-store/angular
-npm run electron
-```
-
-or **Web Frontend:**
-```bash
-cd /home/pi/napkin-store/angular
-npm start
-# Access at http://raspberry-pi-ip:4200
-```
-
-### Option 2: Using PM2 (Recommended for Production)
-
-**Install PM2:**
-```bash
-sudo npm install -g pm2
-```
-
-**Create PM2 Ecosystem File** (`/home/pi/napkin-store/ecosystem.config.js`):
-
-```javascript
-module.exports = {
-  apps: [
-    {
-      name: 'napkin-backend',
-      script: './backend/src/index.ts',
-      interpreter: 'node',
-      args: '--loader ts-node/esm',
-      cwd: '/home/pi/napkin-store',
-      env: {
-        NODE_ENV: 'production',
-        PORT: 3000
-      },
-      error_file: '/var/log/napkin-store/backend-error.log',
-      out_file: '/var/log/napkin-store/backend.log',
-      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
-      merge_logs: true
-    },
-    {
-      name: 'napkin-frontend',
-      script: 'npm',
-      args: 'start',
-      cwd: '/home/pi/napkin-store/angular',
-      env: {
-        NODE_ENV: 'production',
-        PORT: 4200
-      },
-      error_file: '/var/log/napkin-store/frontend-error.log',
-      out_file: '/var/log/napkin-store/frontend.log',
-      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
-    }
-  ]
-};
-```
-
-**Start Services with PM2:**
-```bash
-cd /home/pi/napkin-store
-pm2 start ecosystem.config.js
-
-# Save PM2 configuration to restart on reboot
-pm2 save
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
-```
-
-**Useful PM2 Commands:**
-```bash
-pm2 list                 # View all processes
-pm2 logs napkin-backend  # View backend logs
-pm2 logs napkin-frontend # View frontend logs
-pm2 stop napkin-backend  # Stop backend
-pm2 restart napkin-backend  # Restart backend
-pm2 delete napkin-backend   # Remove from PM2
+npm run build
+# Creates optimized build in dist/angular/browser/
 ```
 
 ---
@@ -321,9 +238,12 @@ After=network.target
 
 [Service]
 Type=simple
-User=pi
-WorkingDirectory=/home/pi/napkin-store/backend
-ExecStart=/usr/bin/npm run dev
+User=admin
+WorkingDirectory=/home/admin/napkin-store-2026/backend
+# Build: tsc && tsc-alias (compiles TypeScript to dist/)
+ExecStartPre=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run build
+# Start: node dist/index.js (runs compiled production server)
+ExecStart=/home/admin/.nvm/versions/node/v22.23.0/bin/npm start
 Restart=always
 RestartSec=10
 StandardOutput=journal
@@ -351,21 +271,86 @@ After=network.target napkin-backend.service
 
 [Service]
 Type=simple
-User=pi
-WorkingDirectory=/home/pi/napkin-store/angular
-ExecStart=/usr/bin/npm run electron
+User=admin
+WorkingDirectory=/home/admin/napkin-store-2026/angular
+# Build: ng build (creates optimized production build in dist/angular/browser/)
+ExecStartPre=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run build
+# Start: electron . (runs Electron desktop app)
+ExecStart=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run electron
 Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
 Environment="NODE_ENV=production"
-Environment="PORT=4200"
 
 [Install]
 WantedBy=multi-user.target
 ```
 
+### Available NPM Scripts Reference
+
+The systemd services use these NPM scripts to build and start your applications.
+
+**Backend Service** (`/home/pi/napkin-store/backend/package.json`):
+```bash
+npm run dev       # Development with file watching (tsx watch src/index.ts) - NOT for systemd
+npm run build     # Compile TypeScript to JavaScript (tsc && tsc-alias)
+npm start         # Run production server (node dist/index.js)
+npm run db:init   # Initialize database
+npm run db:seed   # Seed database with test data
+npm test          # Run tests (vitest)
+npm run lint      # Run ESLint
+npm run format    # Format code with Prettier
+```
+
+**The following scripts are called by systemd:**
+- **Backend**: `ExecStartPre=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run build` → `ExecStart=/home/admin/.nvm/versions/node/v22.23.0/bin/npm start` (Express.js server on port 3000)
+- **Frontend**: `ExecStartPre=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run build` → `ExecStart=/home/admin/.nvm/versions/node/v22.23.0/bin/npm run electron` (Electron desktop app)
+
+**Frontend Service** (`/home/pi/napkin-store/angular/package.json`):
+```bash
+npm start         # Serve application with ng serve (development)
+npm run build     # Build optimized production bundle (ng build)
+npm run watch     # Watch mode build (ng build --watch --configuration development)
+npm test          # Run tests (ng test)
+npm run electron  # Run as Electron app
+npm run electron-build  # Build and run as Electron app
+```
+
 ### Enable and Start Services
+
+**First, find the correct npm path on your Raspberry Pi:**
+
+```bash
+# Find where npm is installed
+which npm
+# Output from your system: /home/admin/.nvm/versions/node/v22.23.0/bin/npm
+```
+
+The npm path varies based on your installation:
+- **NVM installed**: `/home/admin/.nvm/versions/node/v22.23.0/bin/npm` (you have this one)
+- **System package**: `/usr/local/bin/npm` or `/usr/bin/npm`
+- **Custom path**: Whatever `which npm` outputs
+
+**Use the path from `which npm` in your service files above.**
+
+**Then, ensure all permissions are correct:**
+
+```bash
+# Set application ownership
+sudo chown -R admin:admin /home/admin/napkin-store-2026
+sudo chmod -R 755 /home/admin/napkin-store-2026
+
+# Ensure log directory is writable
+sudo chown admin:admin /var/log/napkin-store
+sudo chmod 755 /var/log/napkin-store
+
+# Make npm scripts executable (if needed)
+chmod +x /home/admin/napkin-store-2026/backend/package.json
+chmod +x /home/admin/napkin-store-2026/angular/package.json
+```
+
+**Then reload and start services:**
 
 ```bash
 # Reload systemd daemon
@@ -388,73 +373,21 @@ sudo journalctl -u napkin-backend.service -f  # Follow logs
 sudo journalctl -u napkin-frontend.service -f
 ```
 
----
+**If you get "npm: command not found" error:**
 
-## Nginx Reverse Proxy (Optional but Recommended)
-
-### Install Nginx
+If your `which npm` retucorns a different path than what's in the service files, update them:
 
 ```bash
-sudo apt install -y nginx
-```
+# Find your npm path
+which npm
 
-### Configure Nginx
+# Edit the service file
+sudo nano /etc/systemd/system/napkin-backend.service
 
-Create `/etc/nginx/sites-available/napkin-store`:
-
-```bash
-sudo nano /etc/nginx/sites-available/napkin-store
-```
-
-Add the following:
-
-```nginx
-upstream backend {
-    server 127.0.0.1:3000;
-}
-
-upstream frontend {
-    server 127.0.0.1:4200;
-}
-
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    server_name _;
-
-    # Frontend
-    location / {
-        proxy_pass http://frontend;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-    # Backend API
-    location /api/ {
-        proxy_pass http://backend;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
-
-### Enable Nginx
-
-```bash
-sudo ln -s /etc/nginx/sites-available/napkin-store /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default  # Remove default site
-sudo nginx -t  # Test configuration
-sudo systemctl start nginx
-sudo systemctl enable nginx
+# Replace the npm path with your actual path from 'which npm'
+# Then reload and restart
+sudo systemctl daemon-reload
+sudo systemctl restart napkin-backend.service
 ```
 
 ---
@@ -490,15 +423,21 @@ Reduce build memory usage:
 export NODE_OPTIONS="--max-old-space-size=512"
 npm run build
 ```
-
+If systemd builds fail due to memory, update the service file to include:
+```ini
+[Service]
+Environment="NODE_OPTIONS=--max-old-space-size=512"
+```
 ### 4. **Database Connection Errors**
 
 ```bash
 # Check database file exists and permissions
-ls -la /home/pi/napkin-store/backend/data/
+ls -la /home/admin/napkin-store-2026/backend/data/
 
-# Reset permissions
-chmod 666 /home/pi/napkin-store/backend/data/data.db
+# Fix permissions for database files
+chmod 644 /home/admin/napkin-store-2026/backend/data/*.db
+chmod 644 /home/admin/napkin-store-2026/backend/data/*.db.compacting
+chown admin:admin /home/admin/napkin-store-2026/backend/data/*
 ```
 
 ### 5. **CORS Issues**
@@ -512,7 +451,7 @@ CORS_ORIGIN=http://your-raspberry-pi-ip:4200,http://localhost:4200
 
 ```bash
 # Add user to gpio group
-sudo usermod -a -G gpio pi
+sudo usermod -a -G gpio admin
 
 # Reboot for changes to take effect
 sudo reboot
@@ -521,14 +460,9 @@ sudo reboot
 ### 7. **View Application Logs**
 
 ```bash
-# Using PM2
-pm2 logs
-
-# Using Systemd
+# View systemd service logs
 sudo journalctl -u napkin-backend.service -n 100 -f
-
-# Check nginx logs
-sudo tail -f /var/log/nginx/error.log
+sudo journalctl -u napkin-frontend.service -n 100 -f
 ```
 
 ---
@@ -572,17 +506,15 @@ htop
 ## Quick Start Checklist
 
 - [ ] Install Node.js LTS 22
-- [ ] Clone/copy project to `/home/pi/napkin-store`
+- [ ] Clone/copy project to `/home/admin/napkin-store-2026`
 - [ ] Install backend dependencies: `cd backend && npm install`
 - [ ] Install frontend dependencies: `cd ../angular && npm install`
 - [ ] Create backend `.env` file with configuration
-- [ ] Build frontend: `npm run build`
-- [ ] Test backend: `cd ../backend && npm start`
-- [ ] Test frontend: `cd ../angular && npm start`
-- [ ] Configure PM2 or Systemd services
-- [ ] Set up Nginx reverse proxy (optional)
-- [ ] Enable services to start on boot
-- [ ] Reboot and verify services start automatically
+- [ ] Create log directory: `sudo mkdir -p /var/log/napkin-store && sudo chown admin:admin /var/log/napkin-store`
+- [ ] Set permissions: `sudo chown -R admin:admin /home/admin/napkin-store-2026 && sudo chmod -R 755 /home/admin/napkin-store-2026`
+- [ ] Create systemd service files
+- [ ] Enable and start services: `sudo systemctl enable/start napkin-backend.service napkin-frontend.service`
+- [ ] Verify services: `sudo systemctl status napkin-backend.service napkin-frontend.service`
 
 ---
 
@@ -593,8 +525,7 @@ For more information, refer to:
 - [Node.js Documentation](https://nodejs.org/en/docs/)
 - [Angular Documentation](https://angular.io/docs)
 - [Express.js Documentation](https://expressjs.com/)
-- [PM2 Documentation](https://pm2.keymetrics.io/docs/usage/quick-start/)
-- [Nginx Documentation](https://nginx.org/en/docs/)
+- [Systemd Documentation](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
 
 ---
 

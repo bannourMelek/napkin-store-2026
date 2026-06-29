@@ -1,5 +1,5 @@
 export interface User {
-  mat: string;
+  personalNum: string;
   name: string;
   org?: string;
   direct?: string;

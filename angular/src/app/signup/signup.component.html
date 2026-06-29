@@ -5,33 +5,34 @@
         <img src="assets/drx.png" alt="Logo" class="w-32 h-auto">
     </div>
 
-
     <!-- Card section - centered vertically and horizontally -->
     <div class="flex-1 flex items-center justify-center">
         <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-slate-700 w-[70vw]">
             <div class="p-8">
-                <div class="text-center mb-8">
+
+                <!-- Excel Lookup Mode -->
+                <div *ngIf="!showForm" class="text-center">
                     <h2 class="text-2xl font-bold text-cyan-700 uppercase mb-2">Inscription</h2>
-                    <p class="text-slate-400 mb-4">Veuillez introduire le numero de votre badge et Valider vos informations
-                    </p>
+                    <p class="text-slate-400 mb-4">Veuillez introduire Votre Matricule et Valider vos informations</p>
 
                     <div class="mb-6">
-                        <input type="password" #badgeNumber placeholder="Numero de Badge"
+                        <input type="text" #personalNumber placeholder="Matricule" (keydown)="blockManualTyping($event)"
                             class="w-full px-4 py-3 rounded-lg bg-slate-700 text-white text-center placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 border border-slate-600"
-                            [(ngModel)]="badgeNum" />
+                            [(ngModel)]="personalNum" />
                     </div>
 
                     <p class="text-yellow-500 text-center mb-4" *ngIf="message">{{message}}</p>
 
-                    <button mat-raised-button color="primary" class="w-full py-3 text-lg font-semibold"
-                        (click)="getEmployee()">Valider</button>
+                    <div class="flex gap-4 mb-6">
+                        <button mat-raised-button color="primary" class="flex-1 py-3 text-lg font-semibold"
+                            (click)="getEmployee()">Valider</button>
+                    </div>
 
-                </div>
-
-                <div class="text-center">
-                    <p class="text-slate-400">Déjà Client? <a routerLink="/signin"
-                            class="text-indigo-400 font-semibold hover:text-indigo-300 transition">Authentification</a>
-                    </p>
+                    <div class="text-center">
+                        <p class="text-slate-400">Déjà Client? <a routerLink="/signin"
+                                class="text-indigo-400 font-semibold hover:text-indigo-300 transition">Authentification</a>
+                        </p>
+                    </div>
                 </div>
 
             </div>

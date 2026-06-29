@@ -1,8 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DataService } from '../services/data.service';
 import * as ExcelJS from 'exceljs';
@@ -22,22 +25,19 @@ import { SignupBadgeDialogComponent } from './signup-badge-dialog.component';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, MatDialogModule, MatButtonModule, NgxSpinnerModule, RouterLink],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatCardModule, NgxSpinnerModule, RouterLink],
 })
 export class SignupComponent implements OnInit {
-  @ViewChild('badgeNumber', { static: false }) myInputField!: ElementRef;
+  private static readonly DIGIT_KEY_REGEX = /^[0-9]$/;
 
-  badgeNum: number | undefined;
+  @ViewChild('personalNumber', { static: false }) myInputField!: ElementRef;
+
+  userForm!: FormGroup;
+  showForm = false;
+  personalNum: string = '';
   badgeId = '';
   message = '';
-  user: User = {
-    name: '',
-    badgeId: '',
-    jobName: '',
-    stock: 5,
-    badgeNum: 0,
-    mat: '',
-  };
+  user: any
 
   stock: Stock = {
     stockA: 0,
@@ -52,8 +52,11 @@ export class SignupComponent implements OnInit {
     private userService: UserService,
     private stockService: StockService,
     private gpioService: GpioService,
-    private cdr: ChangeDetectorRef
-  ) { }
+    private cdr: ChangeDetectorRef,
+    private formBuilder: FormBuilder
+  ) {
+    this.initializeForm();
+  }
 
   ngOnInit() {
     // Disable GPIO buttons to simulate hardware button clicks for product retrieval
@@ -81,6 +84,33 @@ export class SignupComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  blockManualTyping(event: KeyboardEvent): void {
+    if (!SignupComponent.DIGIT_KEY_REGEX.test(event.key)) {
+      event.preventDefault();
+    }
+  }
+  initializeForm() {
+    this.userForm = this.formBuilder.group({
+      personalNum: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      jobName: ['', [Validators.required]],
+      badgeNum: ['', [Validators.required, Validators.min(0)]],
+      badgeId: ['', [Validators.required]],
+      stock: [5, [Validators.required, Validators.min(0)]],
+    });
+  }
+
+  resetForm() {
+    this.userForm.reset({
+      personalNum: '',
+      name: '',
+      jobName: '',
+      badgeNum: '',
+      badgeId: '',
+      stock: 5,
+    });
+    this.cdr.detectChanges();
   }
 
   getEmployee() {
@@ -110,14 +140,15 @@ export class SignupComponent implements OnInit {
           json.push(obj);
         });
 
-        const foundUser = json.find((obj: any) => obj['N° badge'] == this.badgeNum);
+        const foundUser = json.find((obj: any) => obj['Mat.'] == this.personalNum);
 
         this.loading = false;
         this.cdr.detectChanges();
 
         if (foundUser) {
+          console.log(foundUser);
           this.user = {
-            mat: foundUser['Mat.'],
+            personalNum: foundUser['Mat.'],
             name: foundUser['Matricule'],
             // org: foundUser['ORGA'],
             // direct: foundUser['Direct/Indirect'],
@@ -137,7 +168,7 @@ export class SignupComponent implements OnInit {
             disableClose: true,
             data: { user: this.user }
           });
-
+          this.cdr.detectChanges();
           dialogRef.afterClosed().subscribe((result) => {
             if (result) {
               this.getBadgeId();
@@ -146,7 +177,7 @@ export class SignupComponent implements OnInit {
             }
           });
         } else {
-          this.user.badgeNum = this.badgeNum ?? 0;
+          this.user.personalNum = this.personalNum ?? '';
           const dialogRef = this.dialog.open(SignupNewEmployeeDialogComponent, {
             width: '500px',
             disableClose: true,
@@ -184,6 +215,20 @@ export class SignupComponent implements OnInit {
     );
   }
 
+  submitForm() {
+    if (this.userForm.valid) {
+      this.user = {
+        personalNum: this.userForm.get('personalNum')?.value,
+        name: this.userForm.get('name')?.value,
+        jobName: this.userForm.get('jobName')?.value,
+        badgeNum: parseInt(this.userForm.get('badgeNum')?.value),
+        badgeId: this.userForm.get('badgeId')?.value,
+        stock: this.userForm.get('stock')?.value,
+      };
+      this.signupUser();
+    }
+  }
+
   getBadgeId() {
     const dialogRef = this.dialog.open(SignupBadgeDialogComponent, {
       width: '400px',
@@ -202,16 +247,19 @@ export class SignupComponent implements OnInit {
   }
 
   initializeValues() {
-    this.badgeNum = undefined;
+    this.personalNum = '';
     this.badgeId = '';
+    this.showForm = false;
     this.user = {
       name: '',
       badgeId: '',
       jobName: '',
       stock: 5,
       badgeNum: 0,
-      mat: '',
+      personalNum: '',
     };
+    this.resetForm();
+    this.cdr.detectChanges();
     // Defer focus until after change detection completes
     setTimeout(() => {
       if (this.myInputField) {

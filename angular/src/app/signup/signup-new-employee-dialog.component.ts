@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -59,10 +59,12 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule, MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule]
 })
 export class SignupNewEmployeeDialogComponent {
+  data = inject(MAT_DIALOG_DATA);
+
   constructor(
     public dialogRef: MatDialogRef<SignupNewEmployeeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+  }
 
   onConfirm() {
     this.dialogRef.close(this.data.user);

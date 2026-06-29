@@ -8,6 +8,11 @@
     <div class="flex-1 flex items-center justify-center">
         <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-slate-700 w-[70vw]">
             <div class="p-8 text-center">
+                <!-- Action Message - Displayed when product is dispensed -->
+                <div *ngIf="showMessage" class="mb-6 p-6 bg-green-100 border-2 border-green-500 rounded-lg animate-pulse">
+                    <p class="text-green-700 text-2xl font-bold">{{ messageText }}</p>
+                </div>
+
                 <p class="text-cyan-700 mb-4 text-lg">Bonjour <span class="font-bold">{{user.name}}</span></p>
 
                 <!-- Stock availability messages -->

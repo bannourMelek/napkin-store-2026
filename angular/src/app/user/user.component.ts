@@ -10,6 +10,7 @@ import { User } from '../entities/user';
 import { Stock } from '../entities/stock';
 import { GpioService } from '../services/gpio.service';
 import { io } from 'socket.io-client';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -30,7 +31,10 @@ export class UserComponent implements AfterViewChecked, OnInit {
   relaisBPin = 21;
 
   functionFired = false;
+  showMessage = false;
+  messageText = '';
   private socket: any;
+  private messageTimeout: any;
 
   constructor(
     private readonly changeDetectorRef: ChangeDetectorRef,
@@ -84,39 +88,93 @@ export class UserComponent implements AfterViewChecked, OnInit {
         console.log(err);
       }
     );
-    this.socket = io('http://127.0.0.1:5000');
-    this.socket.on('button_pressed', (data: any) => {
-      console.log('Button Pressed:', data);
-      /*this.user.stock = this.user.stock - 1;
-      if(data.channel == 6) {
-        this.stock.stockB = this.stock.stockB - 1;
-      } else {
-        this.stock.stockA = this.stock.stockA - 1;
-      }
-      this.stockService.updateStock(this.stock).subscribe(
-        (data: any) => {
-          this.stock = data.stock;
-          console.log(this.stock);
-          this.userService.update(this.user).subscribe(
-            (data: any) => {
-              console.log(data);
-              this.user = data.user;
-              this.router.navigate(['/signin']);
-            },
-            (err) => {
-              console.log(err);
-            }
-          );
-        },
-        (err) => {
-          console.log(err);
+    // Initialize Socket.IO only for Electron app
+    const enableSocket = (environment as any).enableSocket || false;
+    const isElectron = (environment as any).isElectron || false;
+
+    if (enableSocket) {
+      const socketUrl = (environment as any).socketUrl || environment.apiUrl.replace('/api/', '');
+
+      this.socket = io(socketUrl, {
+        transports: ['websocket', 'polling'],
+        reconnection: true,
+        reconnectionDelay: 1000,
+        reconnectionAttempts: 5,
+      });
+
+      // Socket.IO event handlers
+      this.socket.on('connect', () => {
+        console.log('✅ Socket.IO connected:', this.socket.id);
+        if (isElectron) {
+          console.log('🖥️  Running in Electron environment');
         }
-      );*/
-    });
+      });
+
+      this.socket.on('disconnect', () => {
+        console.log('❌ Socket.IO disconnected');
+      });
+
+      this.socket.on('connect_error', (error: any) => {
+        console.error('⚠️  Socket.IO connection error:', error);
+      });
+
+      this.socket.on('button_pressed', (data: any) => {
+        console.log('Button Pressed:', data);
+        /*this.user.stock = this.user.stock - 1;
+        if(data.channel == 6) {
+          this.stock.stockB = this.stock.stockB - 1;
+        } else {
+          this.stock.stockA = this.stock.stockA - 1;
+        }
+        this.stockService.updateStock(this.stock).subscribe(
+          (data: any) => {
+            this.stock = data.stock;
+            console.log(this.stock);
+            this.userService.update(this.user).subscribe(
+              (data: any) => {
+                console.log(data);
+                this.user = data.user;
+                this.router.navigate(['/signin']);
+              },
+              (err) => {
+                console.log(err);
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+          }
+        );*/
+      });
+    } else {
+      console.log('ℹ️  Socket.IO disabled for browser environment');
+    }
   }
 
   ngAfterViewChecked(): void {
     this.changeDetectorRef.detectChanges();
+  }
+
+  showActionMessage(message: string): void {
+    this.showMessage = true;
+    this.messageText = message;
+    this.changeDetectorRef.detectChanges();
+
+    // Clear existing timeout if any
+    if (this.messageTimeout) {
+      clearTimeout(this.messageTimeout);
+    }
+
+
+    // Hide message and reset to initial state after 3 seconds
+    this.messageTimeout = setTimeout(() => {
+      this.showMessage = false;
+      this.messageText = '';
+      this.functionFired = false;
+      this.router.navigate(['/signin']);
+
+      this.changeDetectorRef.detectChanges();
+    }, 3000);
   }
 
   updateUser(choice: string) {
@@ -139,7 +197,7 @@ export class UserComponent implements AfterViewChecked, OnInit {
                   (data: any) => {
                     console.log(data);
                     this.user = data.user;
-                    this.router.navigate(['/signin']);
+                    this.showActionMessage('Veuillez récupérer votre produit');
                   },
                   (err) => {
                     console.log(err);
@@ -173,7 +231,7 @@ export class UserComponent implements AfterViewChecked, OnInit {
                   (data: any) => {
                     console.log(data);
                     this.user = data.user;
-                    this.router.navigate(['/signin']);
+                    this.showActionMessage('Veuillez récupérer votre produit');
                   },
                   (err) => {
                     console.log(err);

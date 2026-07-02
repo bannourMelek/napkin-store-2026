@@ -1,3 +1,4 @@
+{"id":"cvf360d96bcmzei8047","personalNum":4040404,"name":"Foulena ben Foulen","department":"Production","jobName":"Ouvrier (e)","badgeNum":0,"stock":4,"badgeId":">11,4254462,4E0040EAFE<11,254462,4E0040EAFED","createdAt":"2026-07-02T08:06:57.472Z","updatedAt":{"$$date":1782980149139},"_id":"uGRkDa38CM8pPuCK"}
 {"$$indexCreated":{"fieldName":"mat","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"badgeId","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"org","unique":false,"sparse":false}}

@@ -15562,3 +15562,885 @@
 [36m2026-06-26 12:49:00 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
 [36m2026-06-26 12:49:00 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
 [36m2026-06-26 12:49:48 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-07-02 08:53:49 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-07-02 08:53:50 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-07-02 08:53:50 [INFO][0m 📝 Environment: development 
+[36m2026-07-02 08:53:50 [INFO][0m 📊 Database: NeDB 
+[36m2026-07-02 08:53:50 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-07-02 08:53:50 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-07-02 08:53:50 [INFO][0m ✅ GPIO service initialized 
+[36m2026-07-02 08:53:50 [INFO][0m [object Object] 
+[36m2026-07-02 08:53:50 [INFO][0m ✅ Socket.IO server initialized and listening 
+[36m2026-07-02 08:53:50 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-07-02 08:53:50 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-07-02 08:56:28 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:56:28 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:56:28 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:56:28 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:56:28 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 08:57:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:57:04 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:57:04 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:57:04 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:57:04 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 08:59:00 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:59:00 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:59:00 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:59:00 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:59:00 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 08:59:09 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:59:09 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:59:09 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:59:09 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:59:09 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 08:59:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:59:11 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:59:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:59:11 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:59:11 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 08:59:13 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 08:59:13 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 08:59:13 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 08:59:13 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 08:59:13 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:02:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:02:17 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:02:17 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:02:17 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:02:17 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:02:29 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:02:29 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:02:29 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:02:29 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:02:29 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:04:57 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:04:57 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:04:57 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:04:57 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:04:57 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:05:05 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:05:05 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:05:05 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:05:05 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:05:05 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:06:57 [INFO][0m POST /api/user {
+  "body": {
+    "personalNum": 4040404,
+    "name": "Foulena ben Foulen",
+    "department": "Production",
+    "jobName": "Ouvrier (e)",
+    "badgeNum": 0,
+    "stock": 5,
+    "badgeId": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFE"
+  },
+  "query": {}
+}
+[36m2026-07-02 09:06:57 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:06:57 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:06:57 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-07-02 09:06:57 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:06:57 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-07-02 09:06:57 [INFO][0m ✅ Client connected: OglwexjD7o1xYdeXAAAB 
+[36m2026-07-02 09:07:27 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:07:27 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:07:27 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:07:27 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:07:27 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:08:41 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:08:41 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:08:41 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:08:41 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:08:41 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:12:41 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-07-02 09:12:41 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-07-02 09:12:41 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:29:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[36m2026-07-02 09:12:42 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:12:42 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:12:42 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:12:42 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:12:42 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:12:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:12:44 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:12:44 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:12:44 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:12:44 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[33m2026-07-02 09:15:14 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-07-02 09:15:15 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-07-02 09:15:15 [INFO][0m 📝 Environment: development 
+[36m2026-07-02 09:15:15 [INFO][0m 📊 Database: NeDB 
+[36m2026-07-02 09:15:15 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-07-02 09:15:15 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-07-02 09:15:15 [INFO][0m ✅ GPIO service initialized 
+[36m2026-07-02 09:15:15 [INFO][0m [object Object] 
+[36m2026-07-02 09:15:15 [INFO][0m ✅ Socket.IO server initialized and listening 
+[36m2026-07-02 09:15:15 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-07-02 09:15:15 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-07-02 09:15:29 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[36m2026-07-02 09:15:29 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[31m2026-07-02 09:15:29 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[36m2026-07-02 09:15:29 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:15:29 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:15:29 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-07-02 09:15:29 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:15:29 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-07-02 09:15:29 [INFO][0m ✅ Client connected: hI1HkVoSCei87BQFAAAB 
+[36m2026-07-02 09:15:49 [INFO][0m POST /api/gpio {
+  "body": {
+    "relaisPin": 21
+  },
+  "query": {}
+}
+[36m2026-07-02 09:15:49 [INFO][0m GPIO relay activated on pin 21 
+[36m2026-07-02 09:15:49 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 62,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 09:15:49 [INFO][0m PUT /api/user {
+  "body": {
+    "id": "cvf360d96bcmzei8047",
+    "personalNum": 4040404,
+    "name": "Foulena ben Foulen",
+    "department": "Production",
+    "jobName": "Ouvrier (e)",
+    "badgeNum": 0,
+    "stock": 4,
+    "badgeId": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED",
+    "createdAt": "2026-07-02T08:06:57.472Z",
+    "updatedAt": "2026-07-02T08:06:57.472Z",
+    "_id": "uGRkDa38CM8pPuCK"
+  },
+  "query": {}
+}
+[36m2026-07-02 09:15:52 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:15:52 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:15:52 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:15:52 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:15:52 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:16:27 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[36m2026-07-02 09:16:27 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[31m2026-07-02 09:16:27 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[36m2026-07-02 09:16:27 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:16:27 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:16:27 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-07-02 09:16:27 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:16:27 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-07-02 09:16:27 [INFO][0m ✅ Client connected: vZXKBM_WfuLO9WGHAAAD 
+[36m2026-07-02 09:16:57 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 09:16:57 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 09:16:57 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 09:16:57 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 09:16:57 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 09:20:16 [INFO][0m ❌ Client disconnected: hI1HkVoSCei87BQFAAAB 
+[36m2026-07-02 09:20:16 [INFO][0m ❌ Client disconnected: vZXKBM_WfuLO9WGHAAAD 
+[36m2026-07-02 09:20:37 [INFO][0m ✅ Client connected: EmDqTRe2QdN8fbptAAAF 
+[36m2026-07-02 09:20:37 [INFO][0m ✅ Client connected: bPU7MSTx4aRr_TzZAAAH 
+[36m2026-07-02 09:41:43 [INFO][0m ❌ Client disconnected: bPU7MSTx4aRr_TzZAAAH 
+[36m2026-07-02 09:41:43 [INFO][0m ❌ Client disconnected: EmDqTRe2QdN8fbptAAAF 
+[36m2026-07-02 09:44:37 [INFO][0m ✅ Client connected: d6f38kg7qu68W6h2AAAJ 
+[36m2026-07-02 09:44:38 [INFO][0m ✅ Client connected: Jzpw52FR4-3Mhrk9AAAL 
+[36m2026-07-02 10:02:49 [INFO][0m ❌ Client disconnected: d6f38kg7qu68W6h2AAAJ 
+[36m2026-07-02 10:02:49 [INFO][0m ❌ Client disconnected: Jzpw52FR4-3Mhrk9AAAL 
+[36m2026-07-02 10:20:00 [INFO][0m ✅ Client connected: VuHZKNyvIcgJ_3yoAAAN 
+[36m2026-07-02 10:20:00 [INFO][0m ✅ Client connected: 4Pz73IptkaMRi8b6AAAP 
+[36m2026-07-02 10:24:52 [INFO][0m ❌ Client disconnected: VuHZKNyvIcgJ_3yoAAAN 
+[36m2026-07-02 10:24:52 [INFO][0m ❌ Client disconnected: 4Pz73IptkaMRi8b6AAAP 
+[36m2026-07-02 10:26:52 [INFO][0m ✅ Client connected: eVvWk_a8D4wa6UXAAAAR 
+[36m2026-07-02 10:26:52 [INFO][0m ✅ Client connected: OmPOmUskJt6rnwTqAAAT 
+[36m2026-07-02 10:40:31 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[36m2026-07-02 10:40:31 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">11,4254462,4E0040EAFE<11,254462,4E0040EAFED"
+  }
+}
+[31m2026-07-02 10:40:31 [ERROR][0m Admin not found {
+  "stack": "Error: Admin not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\adminController.ts:30:11)",
+  "isOperational": true
+}
+[36m2026-07-02 10:40:31 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:40:31 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:40:31 [INFO][0m Event detection enabled for GPIO pin 5 
+[36m2026-07-02 10:40:31 [INFO][0m GET /api/turn-on-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:40:31 [INFO][0m Event detection enabled for GPIO pin 6 
+[36m2026-07-02 10:40:31 [INFO][0m ✅ Client connected: 9di8VaXki2Y6BSd-AAAV 
+[36m2026-07-02 10:41:01 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:41:01 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:41:01 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:41:01 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:41:01 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:52:16 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-07-02 10:52:16 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-07-02 10:52:16 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:29:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[36m2026-07-02 10:52:16 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:52:16 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:52:16 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:52:16 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:52:16 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:52:35 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:52:35 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:52:35 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:52:35 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:52:35 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:52:39 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-07-02 10:52:39 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-07-02 10:52:39 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:29:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[36m2026-07-02 10:52:39 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:52:39 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:52:39 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:52:39 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:52:39 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:55:39 [INFO][0m 📍 SIGINT received, shutting down gracefully... 
+[33m2026-07-02 10:55:50 [WARN][0m ⚠️  GPIO service initialized but not imported (requires: npm install onoff) 
+[36m2026-07-02 10:55:50 [INFO][0m 🚀 Starting Napkin Store Backend... 
+[36m2026-07-02 10:55:50 [INFO][0m 📝 Environment: development 
+[36m2026-07-02 10:55:50 [INFO][0m 📊 Database: NeDB 
+[36m2026-07-02 10:55:50 [INFO][0m ✅ Connected to NeDB successfully! 
+[33m2026-07-02 10:55:50 [WARN][0m ⚠️  GPIO not available - simulating GPIO operations 
+[36m2026-07-02 10:55:50 [INFO][0m ✅ GPIO service initialized 
+[36m2026-07-02 10:55:50 [INFO][0m [object Object] 
+[36m2026-07-02 10:55:50 [INFO][0m ✅ Socket.IO server initialized and listening 
+[36m2026-07-02 10:55:50 [INFO][0m 🎉 Server running on http://0.0.0.0:5000 
+[36m2026-07-02 10:55:50 [INFO][0m 📡 API available at http://0.0.0.0:5000/api 
+[36m2026-07-02 10:58:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:58:11 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:58:11 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:58:11 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:58:11 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:58:53 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-07-02 10:58:53 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:29:11)",
+  "isOperational": true
+}
+[36m2026-07-02 10:58:53 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-07-02 10:58:53 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 10:58:53 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 10:58:53 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 10:58:53 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 10:58:53 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 10:59:03 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 67,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:06 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 68,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:17 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 63,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:17 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 58,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:17 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 53,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:17 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 48,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:18 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 43,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:18 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 38,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:18 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 33,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:19 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 28,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:19 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 23,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:19 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 18,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:19 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 13,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:19 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 8,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:20 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 84
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:25 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 79
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:25 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 74
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:26 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 69
+  },
+  "query": {}
+}
+[36m2026-07-02 10:59:28 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 74
+  },
+  "query": {}
+}
+[36m2026-07-02 11:00:00 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 11:00:00 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 11:00:00 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 11:00:00 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 11:00:00 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 11:10:40 [INFO][0m GET /api/user {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[36m2026-07-02 11:10:40 [INFO][0m GET /api/admin {
+  "query": {
+    "badge_id": ">3,1064986999,77697A3F<3,1064986999,77697A3F"
+  }
+}
+[31m2026-07-02 11:10:40 [ERROR][0m User not found {
+  "stack": "Error: User not found\n    at <anonymous> (C:\\Dev-Projects\\Scouting\\napkin-store-master\\backend\\src\\controllers\\userController.ts:29:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)",
+  "isOperational": true
+}
+[36m2026-07-02 11:10:40 [INFO][0m GET /api/stock {
+  "query": {}
+}
+[36m2026-07-02 11:10:40 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "5"
+  }
+}
+[36m2026-07-02 11:10:40 [INFO][0m Event detection disabled for GPIO pin 5 
+[36m2026-07-02 11:10:40 [INFO][0m GET /api/turn-off-button {
+  "query": {
+    "pinButton": "6"
+  }
+}
+[36m2026-07-02 11:10:40 [INFO][0m Event detection disabled for GPIO pin 6 
+[36m2026-07-02 11:10:46 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 69
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:47 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 64
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:47 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 59
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:47 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 54
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:47 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 49
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:47 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 44
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:48 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 39
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:48 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 34
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:48 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 29
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:48 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 24
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:49 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 19
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:49 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 14
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:49 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 9
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:49 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 4
+  },
+  "query": {}
+}
+[36m2026-07-02 11:10:52 [INFO][0m PUT /api/stock {
+  "body": {
+    "stockA": 3,
+    "stockB": 9
+  },
+  "query": {}
+}
+[36m2026-07-02 11:33:56 [INFO][0m 📍 SIGINT received, shutting down gracefully... 

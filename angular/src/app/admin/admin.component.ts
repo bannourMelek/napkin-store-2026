@@ -94,22 +94,22 @@ export class AdminComponent implements OnInit, AfterViewInit {
     );
   }
 
-  minus(choice: string) {
+  minus(choice: string, amount: number = 1) {
     if (choice == 'A') {
-      this.stock.stockA = this.stock.stockA - 1;
+      this.stock.stockA = Math.max(0, this.stock.stockA - amount);
       this.updateStock();
     } else {
-      this.stock.stockB = this.stock.stockB - 1
+      this.stock.stockB = Math.max(0, this.stock.stockB - amount);
       this.updateStock();
     }
   }
 
-  plus(choice: string) {
+  plus(choice: string, amount: number = 1) {
     if (choice == 'A') {
-      this.stock.stockA = this.stock.stockA + 1;
+      this.stock.stockA = this.stock.stockA + amount;
       this.updateStock();
     } else {
-      this.stock.stockB = this.stock.stockB + 1
+      this.stock.stockB = this.stock.stockB + amount;
       this.updateStock();
     }
   }

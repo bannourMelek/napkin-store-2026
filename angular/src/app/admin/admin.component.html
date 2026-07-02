@@ -14,12 +14,18 @@
                 <!-- Stock A Control -->
                 <div class="mb-8">
                     <div class="flex items-center justify-center gap-2 bg-slate-700 rounded-lg p-4 mb-2">
-                        <button type="button" #stockAMinusBtn mat-raised-button (click)="minus('A')" class="px-4">
+                        <button type="button" #stockAMinusBtn mat-raised-button (click)="minus('A', 5)" class="px-2 text-sm">
+                            -5
+                        </button>
+                        <button type="button" mat-raised-button (click)="minus('A')" class="px-4">
                             −
                         </button>
                         <p class="flex-1 text-white font-semibold text-lg">A: {{stock.stockA}}</p>
                         <button type="button" mat-raised-button color="primary" (click)="plus('A')" class="px-4">
                             +
+                        </button>
+                        <button type="button" mat-raised-button color="primary" (click)="plus('A', 5)" class="px-2 text-sm">
+                            +5
                         </button>
                     </div>
                 </div>
@@ -27,12 +33,18 @@
                 <!-- Stock B Control -->
                 <div class="mb-8">
                     <div class="flex items-center justify-center gap-2 bg-slate-700 rounded-lg p-4 mb-2">
+                        <button type="button" mat-raised-button (click)="minus('B', 5)" class="px-2 text-sm">
+                            -5
+                        </button>
                         <button type="button" mat-raised-button (click)="minus('B')" class="px-4">
                             −
                         </button>
                         <p class="flex-1 text-white font-semibold text-lg">B: {{stock.stockB}}</p>
                         <button type="button" mat-raised-button color="primary" (click)="plus('B')" class="px-4">
                             +
+                        </button>
+                        <button type="button" mat-raised-button color="primary" (click)="plus('B', 5)" class="px-2 text-sm">
+                            +5
                         </button>
                     </div>
                 </div>
